@@ -1,0 +1,6 @@
+{
+  "name": "Gerador de Anamnese e Evolução Médica",
+  "description": "Sistema clínico de anamnese e evolução médica estruturada por problemas e SOAP, com motor de regex para adequação textual, sugestão automática de CID-10 e planos terapêuticos por protocolo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
