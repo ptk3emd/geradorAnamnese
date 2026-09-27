@@ -90,7 +90,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
       {/* 1. Identificação (ID) */}
       <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none">
         <h2 className="text-[16px] font-semibold text-[#1d1d1f] flex items-center space-x-2 border-b border-[#f0f0f0] pb-3">
-          <User className="h-4 w-4 text-[#0066cc]" />
+          <User className="h-4 w-4 text-[#52525b]" />
           <span>1. Identificação do Paciente (ID)</span>
         </h2>
 
@@ -104,7 +104,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.identificacao.nomeIniciais}
               onChange={(e) => updateIdentificacao('nomeIniciais', e.target.value)}
               placeholder="Ex: Maria de Oliveira Santos (ou M.O.S.)"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -118,13 +118,13 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
                 value={data.identificacao.idade}
                 onChange={(e) => updateIdentificacao('idade', e.target.value)}
                 placeholder="Ex: 54"
-                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               />
               <select
                 value={data.identificacao.sexo}
                 onChange={(e) => updateIdentificacao('sexo', e.target.value)}
                 aria-label="Sexo biológico do paciente"
-                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               >
                 <option value="F">Fem (F)</option>
                 <option value="M">Masc (M)</option>
@@ -142,7 +142,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.identificacao.naturalidade}
               onChange={(e) => updateIdentificacao('naturalidade', e.target.value)}
               placeholder="Ex: São Paulo - SP"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -155,7 +155,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.identificacao.ocupacao}
               onChange={(e) => updateIdentificacao('ocupacao', e.target.value)}
               placeholder="Ex: Comerciante / Aposentado"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -168,7 +168,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.identificacao.acompanhante}
               onChange={(e) => updateIdentificacao('acompanhante', e.target.value)}
               placeholder="Ex: O próprio paciente / Cônjuge"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -180,7 +180,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.identificacao.confiabilidade}
               onChange={(e) => updateIdentificacao('confiabilidade', e.target.value)}
               aria-label="Grau de confiabilidade da informação"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             >
               <option value="boa">Boa confiabilidade</option>
               <option value="moderada">Moderada</option>
@@ -198,7 +198,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.identificacao.responsavel}
               onChange={(e) => updateIdentificacao('responsavel', e.target.value)}
               placeholder="Ex: Dr. Nome Sobrenome"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
         </div>
@@ -219,7 +219,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
             <button
               type="button"
               onClick={handleGenerateHdaFromQp}
-              className="flex items-center space-x-1 text-[12px] text-[#0066cc] hover:underline"
+              className="flex items-center space-x-1 text-[12px] text-[#52525b] hover:underline"
               title="Estruturar narrativa de HDA a partir da queixa principal usando regex"
             >
               <Sparkles className="h-3.5 w-3.5" />
@@ -234,7 +234,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
             value={data.queixaPrincipal}
             onChange={(e) => onChange({ ...data, queixaPrincipal: e.target.value })}
             placeholder="Ex: Dor no peito em aperto e falta de ar há 2 horas"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3.5 py-2.5 text-[14px] font-medium text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3.5 py-2.5 text-[14px] font-medium text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
       </section>
@@ -256,7 +256,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
             value={data.hda}
             onChange={(e) => onChange({ ...data, hda: e.target.value })}
             placeholder="Ex: Paciente relata que há 2 dias iniciou quadro de tosse produtiva com expectoração amarelada e febre aferida em 38.5°C, acompanhada de dor torácica ventilatório-dependente em hemitórax direito. Nega hemoptise. Refere piora progressiva da dispneia aos esforços moderados."
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3.5 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3.5 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
       </section>
@@ -278,7 +278,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
             value={data.hpp}
             onChange={(e) => onChange({ ...data, hpp: e.target.value })}
             placeholder="Ex: Hipertensão Arterial há 8 anos em uso de Enalapril 10mg 12/12h; DM2 há 5 anos em uso de Metformina 850mg 2x/dia. Colecistectomia videolaparoscópica em 2019. Nega alergias medicamentosas conhecidas. Vacinação antitetânica e influenza atualizadas."
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
       </section>
@@ -298,7 +298,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
             value={data.historiaFamiliar}
             onChange={(e) => onChange({ ...data, historiaFamiliar: e.target.value })}
             placeholder="Ex: Mãe hipertensa e diabética. Pai falecido por IAM aos 62 anos."
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -315,7 +315,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
             value={data.historiaFisiologica}
             onChange={(e) => onChange({ ...data, historiaFisiologica: e.target.value })}
             placeholder="Ex: Sono preservado, alimentação habitual, diurese e ritmo intestinal regulares."
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -332,7 +332,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
             value={data.historiaSocial}
             onChange={(e) => onChange({ ...data, historiaSocial: e.target.value })}
             placeholder="Ex: Casa própria com saneamento básico. Ex-tabagista cessado há 5 anos. Nega etilismo."
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
       </div>
@@ -358,7 +358,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.revisaoSistemas.constitucional}
               onChange={(e) => updateRevisao('constitucional', e.target.value)}
               placeholder="Ex: Nega perda ponderal ou febre"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
 
@@ -371,7 +371,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.revisaoSistemas.cardiovascular}
               onChange={(e) => updateRevisao('cardiovascular', e.target.value)}
               placeholder="Ex: Refere dor precordial aos esforços"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
 
@@ -384,7 +384,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.revisaoSistemas.respiratorio}
               onChange={(e) => updateRevisao('respiratorio', e.target.value)}
               placeholder="Ex: Nega tosse ou sibilância"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
 
@@ -397,7 +397,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.revisaoSistemas.gastrointestinal}
               onChange={(e) => updateRevisao('gastrointestinal', e.target.value)}
               placeholder="Ex: Nega vômitos ou alteração intestinal"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
 
@@ -410,7 +410,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.revisaoSistemas.geniturinario}
               onChange={(e) => updateRevisao('geniturinario', e.target.value)}
               placeholder="Ex: Diurese clara sem disúria"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
 
@@ -423,7 +423,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.revisaoSistemas.neurologico}
               onChange={(e) => updateRevisao('neurologico', e.target.value)}
               placeholder="Ex: Sem queixas neurológicas"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
         </div>
@@ -471,7 +471,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
                   })
                 }
                 placeholder="Ex: I21.9 ou I50.9"
-                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-semibold text-[#0066cc] outline-none focus:border-[#0066cc]"
+                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-semibold text-[#52525b] outline-none focus:border-[#52525b]"
               />
             </div>
 
@@ -492,7 +492,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
                   })
                 }
                 placeholder="Ex: Síndrome Coronariana Aguda sem supra de ST"
-                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#52525b]"
               />
             </div>
           </div>
@@ -514,7 +514,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
                 })
               }
               placeholder="Ex: Raciocínio fundado em dor torácica anginosa típica com alteração de segmento ST em derivações precordiais."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
         </div>
@@ -534,7 +534,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
           <button
             type="button"
             onClick={handleAddComplementaryExam}
-            className="flex items-center space-x-1 text-[12px] text-[#0066cc] hover:underline"
+            className="flex items-center space-x-1 text-[12px] text-[#52525b] hover:underline"
           >
             <Plus className="h-3 w-3" />
             <span>Adicionar Exame</span>
@@ -548,7 +548,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               <button
                 type="button"
                 onClick={handleAddComplementaryExam}
-                className="text-[#0066cc] underline ml-1"
+                className="text-[#52525b] underline ml-1"
               >
                 Clique para adicionar um exame e sua finalidade
               </button>
@@ -564,19 +564,19 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
                   value={ex.exame}
                   onChange={(e) => handleUpdateExam(ex.id, 'exame', e.target.value)}
                   placeholder="Ex: Radiografia de tórax PA e Perfil"
-                  className="w-full sm:w-1/2 rounded-lg bg-white border border-[#e0e0e0] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+                  className="w-full sm:w-1/2 rounded-lg bg-white border border-[#e0e0e0] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
                 />
                 <input
                   type="text"
                   value={ex.finalidade}
                   onChange={(e) => handleUpdateExam(ex.id, 'finalidade', e.target.value)}
                   placeholder="Finalidade: Confirmar consolidação e afastar pneumotórax"
-                  className="w-full sm:w-1/2 rounded-lg bg-white border border-[#e0e0e0] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+                  className="w-full sm:w-1/2 rounded-lg bg-white border border-[#e0e0e0] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
                 />
                 <button
                   type="button"
                   onClick={() => handleRemoveComplementaryExam(ex.id)}
-                  className="p-1 text-[#7a7a7a] hover:text-red-600 transition"
+                  className="p-1 text-[#7a7a7a] hover:text-neutral-600 transition"
                   title="Excluir exame"
                 >
                   <Trash2 className="h-4 w-4" />
@@ -608,7 +608,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.condutaDiagnostica}
               onChange={(e) => onChange({ ...data, condutaDiagnostica: e.target.value })}
               placeholder="Ex: Coleta de troponina 0h e 2h; ECG seriado a cada 6h"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
 
@@ -621,7 +621,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
               value={data.condutaTerapeutica}
               onChange={(e) => onChange({ ...data, condutaTerapeutica: e.target.value })}
               placeholder="Ex: AAS 200mg mastigável + Ticagrelor 180mg VO + Enoxaparina 1mg/kg SC; Sintomáticos conforme necessidade."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
             />
           </div>
 
@@ -635,7 +635,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
                 value={data.cuidadosGerais}
                 onChange={(e) => onChange({ ...data, cuidadosGerais: e.target.value })}
                 placeholder="Ex: Repouso no leito, dieta zero inicial, O2 se SatO2 < 90%"
-                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
               />
             </div>
 
@@ -648,7 +648,7 @@ export const AnamneseForm: React.FC<AnamneseFormProps> = ({ data, onChange }) =>
                 value={data.planoAltaSeguimento}
                 onChange={(e) => onChange({ ...data, planoAltaSeguimento: e.target.value })}
                 placeholder="Ex: Encaminhamento à UCO; Reavaliação após resultado da troponina."
-                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
               />
             </div>
           </div>

@@ -83,7 +83,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
           <button
             type="button"
             onClick={handleExportJson}
-            className="flex items-center space-x-1.5 rounded-full border border-[#0066cc]/30 bg-[#0066cc]/10 px-3.5 py-1.5 text-[12px] font-semibold text-[#0066cc] transition hover:bg-[#0066cc]/20 active:scale-95"
+            className="flex items-center space-x-1.5 rounded-full border border-[#52525b]/30 bg-[#52525b]/10 px-3.5 py-1.5 text-[12px] font-semibold text-[#52525b] transition hover:bg-[#52525b]/20 active:scale-95"
             title="Exportar estado completo do paciente para arquivo JSON local"
           >
             <Database className="h-3.5 w-3.5" />
@@ -95,7 +95,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
             type="button"
             onClick={handleDownloadPdf}
             disabled={isGeneratingPdf}
-            className="flex items-center space-x-1.5 rounded-full bg-[#0066cc] px-3.5 py-1.5 text-[12px] font-semibold text-white shadow-sm transition hover:bg-[#0071e3] active:scale-95 disabled:opacity-50"
+            className="flex items-center space-x-1.5 rounded-full bg-[#52525b] px-3.5 py-1.5 text-[12px] font-semibold text-white shadow-sm transition hover:bg-[#3f3f46] active:scale-95 disabled:opacity-50"
             title="Gerar e baixar PDF formatado via jsPDF"
           >
             <FileDown className="h-3.5 w-3.5" />
@@ -158,7 +158,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
         <div className="border-b border-[#1d1d1f]/10 pb-4 mb-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#0066cc]">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#52525b]">
                 Uso Acadêmico & Assistencial Hospitalar
               </p>
               <h1 className="text-[20px] font-bold text-[#1d1d1f] tracking-tight">
@@ -181,7 +181,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
               rows={24}
               value={generatedText}
               onChange={(e) => setCustomText(e.target.value)}
-              className="w-full rounded-xl border border-[#0066cc] p-4 font-mono text-[13px] leading-relaxed text-[#1d1d1f] outline-none"
+              className="w-full rounded-xl border border-[#52525b] p-4 font-mono text-[13px] leading-relaxed text-[#1d1d1f] outline-none"
             />
             <div className="mt-2 flex justify-end">
               <button
@@ -194,7 +194,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
             </div>
           </div>
         ) : (
-          <pre className="whitespace-pre-wrap font-sans text-[14px] leading-relaxed text-[#1d1d1f] tracking-tight selection:bg-[#0066cc]/20">
+          <pre className="whitespace-pre-wrap font-sans text-[14px] leading-relaxed text-[#1d1d1f] tracking-tight selection:bg-[#52525b]/20">
             {generatedText}
           </pre>
         )}
@@ -219,7 +219,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
           <button
             type="button"
             onClick={handleCopy}
-            className="flex items-center space-x-1.5 rounded-full bg-[#0066cc] px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-[#0071e3] active:scale-95"
+            className="flex items-center space-x-1.5 rounded-full bg-[#52525b] px-4 py-2 text-[13px] font-semibold text-white shadow-sm transition hover:bg-[#3f3f46] active:scale-95"
           >
             {copied ? (
               <>
@@ -238,7 +238,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
             type="button"
             onClick={handleDownloadPdf}
             disabled={isGeneratingPdf}
-            className="flex items-center space-x-1 rounded-full border border-[#0066cc] bg-[#0066cc]/10 px-3 py-2 text-[12px] font-semibold text-[#0066cc] transition hover:bg-[#0066cc]/20 active:scale-95"
+            className="flex items-center space-x-1 rounded-full border border-[#52525b] bg-[#52525b]/10 px-3 py-2 text-[12px] font-semibold text-[#52525b] transition hover:bg-[#52525b]/20 active:scale-95"
             title="Download direto em PDF"
           >
             <FileDown className="h-3.5 w-3.5" />
@@ -251,7 +251,7 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
             className="flex items-center space-x-1 rounded-full border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] font-medium text-[#1d1d1f] transition hover:bg-[#f0f0f0] active:scale-95"
             title="Exportar dados do paciente em JSON"
           >
-            <Database className="h-3.5 w-3.5 text-[#0066cc]" />
+            <Database className="h-3.5 w-3.5 text-[#52525b]" />
             <span className="hidden sm:inline">JSON</span>
           </button>
 
@@ -269,9 +269,9 @@ export const OutputDocumentView: React.FC<OutputDocumentViewProps> = ({
         <button
           type="button"
           onClick={onOpenChecklist}
-          className="flex items-center space-x-1 rounded-full bg-emerald-50 border border-emerald-300 px-3 py-2 text-[12px] font-medium text-emerald-800 transition hover:bg-emerald-100 active:scale-95"
+          className="flex items-center space-x-1 rounded-full bg-neutral-50 border border-neutral-300 px-3 py-2 text-[12px] font-medium text-neutral-800 transition hover:bg-neutral-100 active:scale-95"
         >
-          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
+          <CheckCircle2 className="h-3.5 w-3.5 text-neutral-600" />
           <span className="hidden sm:inline">Checklist de Segurança</span>
         </button>
       </div>

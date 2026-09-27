@@ -30,7 +30,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
     <div className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none transition-all">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#f0f0f0] pb-3">
         <div className="flex items-center space-x-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066cc]/10 text-[#0066cc]">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#52525b]/10 text-[#52525b]">
             <HeartPulse className="h-3.5 w-3.5" />
           </div>
           <div>
@@ -47,12 +47,12 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
         <div className="flex items-center space-x-1.5 rounded-full bg-[#f5f5f7] px-3 py-1 text-[11px] font-medium text-[#1d1d1f]">
           {assessment.paStatus.includes('crise') || assessment.satO2Status === 'hipoxemia-grave' ? (
             <>
-              <AlertTriangle className="h-3 w-3 text-red-600" />
-              <span className="text-red-700 font-semibold">Alerta Hemodinâmico</span>
+              <AlertTriangle className="h-3 w-3 text-neutral-600" />
+              <span className="text-neutral-700 font-semibold">Alerta Hemodinâmico</span>
             </>
           ) : (
             <>
-              <CheckCircle2 className="h-3 w-3 text-emerald-600" />
+              <CheckCircle2 className="h-3 w-3 text-neutral-600" />
               <span>{assessment.resumoClinico}</span>
             </>
           )}
@@ -70,7 +70,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
             value={vitalSigns.pa}
             onChange={(e) => handleFieldChange('pa', e.target.value)}
             placeholder="120x80"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
           <span className="block mt-0.5 text-[10px] text-[#7a7a7a] truncate">
             {assessment.paDesc}
@@ -87,7 +87,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
             value={vitalSigns.fc}
             onChange={(e) => handleFieldChange('fc', e.target.value)}
             placeholder="75"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
           <span className="block mt-0.5 text-[10px] text-[#7a7a7a] truncate">
             {assessment.fcDesc}
@@ -104,7 +104,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
             value={vitalSigns.fr}
             onChange={(e) => handleFieldChange('fr', e.target.value)}
             placeholder="16"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
           <span className="block mt-0.5 text-[10px] text-[#7a7a7a] truncate">
             {assessment.frDesc}
@@ -121,7 +121,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
             value={vitalSigns.tax}
             onChange={(e) => handleFieldChange('tax', e.target.value)}
             placeholder="36.5"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
           <span className="block mt-0.5 text-[10px] text-[#7a7a7a] truncate">
             {assessment.taxDesc}
@@ -139,14 +139,14 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
               value={vitalSigns.satO2}
               onChange={(e) => handleFieldChange('satO2', e.target.value)}
               placeholder="98%"
-              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-2 text-[13px] font-medium text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
             <input
               type="text"
               value={vitalSigns.o2Suporte}
               onChange={(e) => handleFieldChange('o2Suporte', e.target.value)}
               placeholder="AA"
-              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
           <span className="block mt-0.5 text-[10px] text-[#7a7a7a] truncate">
@@ -166,7 +166,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
             value={vitalSigns.diurese}
             onChange={(e) => handleFieldChange('diurese', e.target.value)}
             placeholder="Ex: 1400 ml, clara / espontânea"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -180,14 +180,14 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
               value={vitalSigns.evacuacoes}
               onChange={(e) => handleFieldChange('evacuacoes', e.target.value)}
               placeholder="Ex: presentes"
-              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
             <input
               type="text"
               value={vitalSigns.balanco}
               onChange={(e) => handleFieldChange('balanco', e.target.value)}
               placeholder="Ex: -350 ml"
-              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
         </div>
@@ -201,7 +201,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
             value={vitalSigns.glicemia || ''}
             onChange={(e) => handleFieldChange('glicemia', e.target.value)}
             placeholder="Ex: 110 mg/dL"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -214,7 +214,7 @@ export const VitalSignsSection: React.FC<VitalSignsSectionProps> = ({
             value={vitalSigns.dorEscala || ''}
             onChange={(e) => handleFieldChange('dorEscala', e.target.value)}
             placeholder="Ex: 0/10 (ou 4/10)"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
       </div>

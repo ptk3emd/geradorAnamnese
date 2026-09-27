@@ -72,7 +72,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
       {/* 1. Identificação e Cabeçalho */}
       <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none">
         <h2 className="text-[16px] font-semibold text-[#1d1d1f] flex items-center space-x-2 border-b border-[#f0f0f0] pb-3">
-          <User className="h-4 w-4 text-[#0066cc]" />
+          <User className="h-4 w-4 text-[#52525b]" />
           <span>Identificação e Cabeçalho da Evolução</span>
         </h2>
 
@@ -86,7 +86,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.identificacao.nomeIniciais}
               onChange={(e) => updateIdentificacao('nomeIniciais', e.target.value)}
               placeholder="Ex: P.M.S."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -100,13 +100,13 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                 value={data.identificacao.idade}
                 onChange={(e) => updateIdentificacao('idade', e.target.value)}
                 placeholder="Ex: 68"
-                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               />
               <select
                 value={data.identificacao.sexo}
                 onChange={(e) => updateIdentificacao('sexo', e.target.value)}
                 aria-label="Sexo biológico"
-                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-1/2 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               >
                 <option value="M">Masc (M)</option>
                 <option value="F">Fem (F)</option>
@@ -125,7 +125,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.identificacao.leito}
               onChange={(e) => updateIdentificacao('leito', e.target.value)}
               placeholder="Ex: Leito 12 / Enf. 04"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -140,14 +140,14 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                 value={data.identificacao.data}
                 onChange={(e) => updateIdentificacao('data', e.target.value)}
                 placeholder="DD/MM/AAAA"
-                className="w-3/5 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-3/5 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               />
               <input
                 type="text"
                 value={data.identificacao.hora}
                 onChange={(e) => updateIdentificacao('hora', e.target.value)}
                 placeholder="HH:MM"
-                className="w-2/5 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-2/5 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               />
             </div>
           </div>
@@ -161,7 +161,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.identificacao.responsavel}
               onChange={(e) => updateIdentificacao('responsavel', e.target.value)}
               placeholder="Ex: Dr. Fulano de Tal - CRM 123456/SP"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
         </div>
@@ -171,7 +171,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
       <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none">
         <div className="border-b border-[#f0f0f0] pb-3">
           <h2 className="text-[16px] font-semibold text-[#1d1d1f] flex items-center space-x-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0066cc] text-[11px] font-bold text-white">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#52525b] text-[11px] font-bold text-white">
               #
             </span>
             <span>Resumo Inicial por Problemas</span>
@@ -193,7 +193,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                 value={data.resumoProblemas.tempoInternacao}
                 onChange={(e) => updateResumo('tempoInternacao', e.target.value)}
                 placeholder="Ex: D3 IH (3º dia de internação hospitalar)"
-                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               />
             </div>
 
@@ -207,7 +207,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                 value={data.resumoProblemas.motivoInternacao}
                 onChange={(e) => updateResumo('motivoInternacao', e.target.value)}
                 placeholder="Ex: ICC descompensada / Caso sem dx fechado: &quot;a esclarecer&quot;"
-                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+                className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
               />
             </div>
           </div>
@@ -222,7 +222,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.resumoProblemas.intercorrencias}
               onChange={(e) => updateResumo('intercorrencias', e.target.value)}
               placeholder="Ex: Sem intercorrências nas últimas 24 h (ou: pico febril de 38.2°C às 03h)"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -236,7 +236,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.resumoProblemas.comorbidadesAlergias}
               onChange={(e) => updateResumo('comorbidadesAlergias', e.target.value)}
               placeholder="Ex: HAS + DM2. Alergia a Penicilina."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -250,7 +250,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.resumoProblemas.tratamentosFimDefinido}
               onChange={(e) => updateResumo('tratamentosFimDefinido', e.target.value)}
               placeholder="Ex: D3/7 ceftriaxona; D2/5 prednisona; Furosemida EV D3; sem ATB."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -264,7 +264,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.resumoProblemas.acessosDispositivos}
               onChange={(e) => updateResumo('acessosDispositivos', e.target.value)}
               placeholder="Ex: AVP MSE; CVC jugular D; SVD; SNE; O2 cateter 2 L/min (ou: ar ambiente, sem dispositivos)"
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -277,7 +277,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               <button
                 type="button"
                 onClick={handleAddExamRow}
-                className="flex items-center space-x-1 text-[12px] text-[#0066cc] hover:underline"
+                className="flex items-center space-x-1 text-[12px] text-[#52525b] hover:underline"
               >
                 <Plus className="h-3 w-3" />
                 <span>Adicionar Exame</span>
@@ -290,7 +290,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                 <button
                   type="button"
                   onClick={handleAddExamRow}
-                  className="text-[#0066cc] underline ml-1"
+                  className="text-[#52525b] underline ml-1"
                 >
                   Adicionar resultado
                 </button>
@@ -304,19 +304,19 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                       value={ex.data}
                       onChange={(e) => handleUpdateExamRow(ex.id, 'data', e.target.value)}
                       placeholder="DD/MM"
-                      className="w-24 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+                      className="w-24 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-2.5 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
                     />
                     <input
                       type="text"
                       value={ex.resultado}
                       onChange={(e) => handleUpdateExamRow(ex.id, 'resultado', e.target.value)}
                       placeholder="Ex: RX tórax 04/05: congestão pulmonar; creatinina 06/05: 1,1"
-                      className="flex-1 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc]"
+                      className="flex-1 rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-1.5 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b]"
                     />
                     <button
                       type="button"
                       onClick={() => handleRemoveExamRow(ex.id)}
-                      className="p-1.5 text-[#7a7a7a] hover:text-red-600 transition"
+                      className="p-1.5 text-[#7a7a7a] hover:text-neutral-600 transition"
                       title="Excluir exame"
                     >
                       <Trash2 className="h-4 w-4" />
@@ -339,7 +339,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
       <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none">
         <div className="border-b border-[#f0f0f0] pb-3">
           <h2 className="text-[16px] font-semibold text-[#1d1d1f] flex items-center space-x-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0066cc] text-[11px] font-bold text-white">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#52525b] text-[11px] font-bold text-white">
               S
             </span>
             <span>Subjetivo - O que o paciente relata nas últimas 24 horas</span>
@@ -359,7 +359,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.pacienteRelata}
               onChange={(e) => onChange({ ...data, pacienteRelata: e.target.value })}
               placeholder="Ex: Paciente relata melhora da dispneia, boa aceitação da dieta, repousou bem."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white resize-none"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white resize-none"
             />
           </div>
 
@@ -372,7 +372,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.sintomasAtuais}
               onChange={(e) => onChange({ ...data, sintomasAtuais: e.target.value })}
               placeholder="Ex: Refere apenas desconforto leve em MSE; diurese preservada e evacuação presente."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -397,7 +397,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                   key={idx}
                   type="button"
                   onClick={() => appendFraseUtil(frase)}
-                  className="rounded-full bg-[#f5f5f7] border border-[#e0e0e0] px-2.5 py-0.5 text-[11px] text-[#1d1d1f] hover:bg-[#0066cc]/10 hover:border-[#0066cc]/40 transition active:scale-95"
+                  className="rounded-full bg-[#f5f5f7] border border-[#e0e0e0] px-2.5 py-0.5 text-[11px] text-[#1d1d1f] hover:bg-[#52525b]/10 hover:border-[#52525b]/40 transition active:scale-95"
                 >
                   + {frase}
                 </button>
@@ -409,7 +409,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.negativasRelevantes}
               onChange={(e) => onChange({ ...data, negativasRelevantes: e.target.value })}
               placeholder="Ex: nega dor torácica e febre nas últimas 24 h."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
         </div>
@@ -425,7 +425,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
       <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none">
         <div className="border-b border-[#f0f0f0] pb-3">
           <h2 className="text-[16px] font-semibold text-[#1d1d1f] flex items-center space-x-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0066cc] text-[11px] font-bold text-white">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#52525b] text-[11px] font-bold text-white">
               A
             </span>
             <span>Impressão - Avaliação Clínica do Dia</span>
@@ -445,7 +445,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.sinteseClinica}
               onChange={(e) => onChange({ ...data, sinteseClinica: e.target.value })}
               placeholder="Exemplo do modelo: Paciente confortável, afebril, hemodinamicamente estável, com melhora da dispneia e boa resposta à diureticoterapia. Mantém necessidade de seguimento laboratorial e ajuste conforme função renal."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white resize-none"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white resize-none"
             />
           </div>
         </div>
@@ -455,7 +455,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
       <section className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none">
         <div className="border-b border-[#f0f0f0] pb-3">
           <h2 className="text-[16px] font-semibold text-[#1d1d1f] flex items-center space-x-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0066cc] text-[11px] font-bold text-white">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#52525b] text-[11px] font-bold text-white">
               P
             </span>
             <span>Conduta - Plano Diagnóstico & Terapêutico</span>
@@ -475,7 +475,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.condutaDiagnostica}
               onChange={(e) => onChange({ ...data, condutaDiagnostica: e.target.value })}
               placeholder="Ex: Solicitar eletrólitos e função renal para monitorar segurança da diurese; RX de tórax de controle."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white resize-none"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white resize-none"
             />
           </div>
 
@@ -488,7 +488,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.condutaTerapeutica}
               onChange={(e) => onChange({ ...data, condutaTerapeutica: e.target.value })}
               placeholder="Ex: Manter diureticoterapia, ajuste de dose de furosemida; transição para VO conforme resposta."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white resize-none"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white resize-none"
             />
           </div>
 
@@ -501,7 +501,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.cuidadosGerais}
               onChange={(e) => onChange({ ...data, cuidadosGerais: e.target.value })}
               placeholder="Ex: Dieta hipossódica, cabeceira 30°, profilaxia de TEV com heparina profilática, fisioterapia motora."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
 
@@ -518,7 +518,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
                     planoAltaSeguimento: 'Conduta mantida, reavaliar em 24 h ou antes se intercorrências.',
                   })
                 }
-                className="text-[11px] text-[#0066cc] hover:underline"
+                className="text-[11px] text-[#52525b] hover:underline"
               >
                 Inserir padrão estável
               </button>
@@ -528,7 +528,7 @@ export const EvolucaoForm: React.FC<EvolucaoFormProps> = ({ data, onChange }) =>
               value={data.planoAltaSeguimento}
               onChange={(e) => onChange({ ...data, planoAltaSeguimento: e.target.value })}
               placeholder="Ex: Conduta mantida, reavaliar em 24 h ou antes se intercorrências / Critérios de alta: euvolemia."
-              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+              className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[13px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
             />
           </div>
         </div>

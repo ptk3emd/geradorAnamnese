@@ -50,7 +50,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
       <div className="mx-auto flex min-h-14 max-w-6xl items-center justify-between gap-2 px-3 py-2 sm:h-14 sm:px-6 sm:py-0">
         {/* Brand Name */}
         <div className="flex min-w-0 items-center space-x-2.5">
-          <div className="h-2 w-2 shrink-0 rounded-sm bg-emerald-400" />
+          <div className="h-2 w-2 shrink-0 rounded-sm bg-neutral-400" />
           <span className="truncate text-[13px] font-medium tracking-tight text-white sm:text-[15px]">
             Gerador de Anamnese & Evolução
           </span>
@@ -96,7 +96,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
             type="button"
             onClick={onDownloadPdf}
             title="Baixar PDF do Prontuário"
-            className="flex min-h-10 items-center space-x-1.5 rounded-lg bg-emerald-400 px-3 py-1.5 text-[12px] font-semibold text-emerald-950 shadow-sm transition hover:bg-emerald-300 active:scale-95 sm:px-3.5"
+            className="flex min-h-10 items-center space-x-1.5 rounded-lg bg-neutral-400 px-3 py-1.5 text-[12px] font-semibold text-neutral-950 shadow-sm transition hover:bg-neutral-300 active:scale-95 sm:px-3.5"
           >
             <FileDown className="h-3.5 w-3.5" />
             <span>PDF</span>

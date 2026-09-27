@@ -37,7 +37,7 @@ export const CidSuggestionsPanel: React.FC<CidSuggestionsPanelProps> = ({
     <div className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none transition-all">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#f0f0f0] pb-3">
         <div className="flex items-center space-x-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066cc]/10 text-[#0066cc]">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#52525b]/10 text-[#52525b]">
             <ShieldCheck className="h-3.5 w-3.5" />
           </div>
           <div>
@@ -58,7 +58,7 @@ export const CidSuggestionsPanel: React.FC<CidSuggestionsPanelProps> = ({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Buscar por CID ou termo..."
-            className="w-full rounded-full border border-[#e0e0e0] bg-[#fafafc] pl-8 pr-3 py-1.5 text-[12px] text-[#1d1d1f] placeholder-[#a1a1a6] outline-none focus:border-[#0066cc]"
+            className="w-full rounded-full border border-[#e0e0e0] bg-[#fafafc] pl-8 pr-3 py-1.5 text-[12px] text-[#1d1d1f] placeholder-[#a1a1a6] outline-none focus:border-[#52525b]"
           />
         </div>
       </div>
@@ -93,7 +93,7 @@ export const CidSuggestionsPanel: React.FC<CidSuggestionsPanelProps> = ({
           {primaryMatch ? (
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="inline-flex items-center space-x-1 text-[11px] font-semibold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                <span className="inline-flex items-center space-x-1 text-[11px] font-semibold uppercase tracking-wider text-neutral-700 bg-neutral-50 px-2 py-0.5 rounded-full">
                   <Check className="h-3 w-3" />
                   <span>Correspondência Primária Detectada</span>
                 </span>
@@ -119,10 +119,10 @@ export const CidSuggestionsPanel: React.FC<CidSuggestionsPanelProps> = ({
                     {suggestions.slice(0, 2).map((item) => (
                       <div
                         key={item.id}
-                        className="flex items-center justify-between rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] hover:border-[#0066cc]/40 transition"
+                        className="flex items-center justify-between rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-2.5 text-[12px] hover:border-[#52525b]/40 transition"
                       >
                         <div className="truncate pr-2">
-                          <span className="font-semibold text-[#0066cc] mr-1.5">
+                          <span className="font-semibold text-[#52525b] mr-1.5">
                             {item.cid}
                           </span>
                           <span className="text-[#1d1d1f]">{item.nome}</span>
@@ -130,7 +130,7 @@ export const CidSuggestionsPanel: React.FC<CidSuggestionsPanelProps> = ({
                         <button
                           type="button"
                           onClick={() => onApplyProtocol(item)}
-                          className="shrink-0 rounded-full bg-white px-2 py-1 text-[11px] font-medium text-[#0066cc] border border-[#e0e0e0] hover:bg-[#0066cc] hover:text-white transition active:scale-95"
+                          className="shrink-0 rounded-full bg-white px-2 py-1 text-[11px] font-medium text-[#52525b] border border-[#e0e0e0] hover:bg-[#52525b] hover:text-white transition active:scale-95"
                         >
                           Usar
                         </button>
@@ -176,15 +176,15 @@ const ProtocolCard: React.FC<ProtocolCardProps> = ({
     <div
       className={`rounded-2xl border transition-all ${
         isSelected
-          ? 'border-[#0066cc] bg-[#0066cc]/5 ring-1 ring-[#0066cc]'
+          ? 'border-[#52525b] bg-[#52525b]/5 ring-1 ring-[#52525b]'
           : isPrimary
-          ? 'border-[#0066cc]/30 bg-[#fafafc]'
+          ? 'border-[#52525b]/30 bg-[#fafafc]'
           : 'border-[#e0e0e0] bg-white'
       } p-3.5`}
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div className="flex items-start space-x-2.5">
-          <span className="mt-0.5 inline-block rounded-md bg-[#0066cc] px-2 py-0.5 text-[11px] font-bold tracking-wide text-white">
+          <span className="mt-0.5 inline-block rounded-md bg-[#52525b] px-2 py-0.5 text-[11px] font-bold tracking-wide text-white">
             {item.cid}
           </span>
           <div>
@@ -197,7 +197,7 @@ const ProtocolCard: React.FC<ProtocolCardProps> = ({
           <button
             type="button"
             onClick={() => setExpanded(!expanded)}
-            className="text-[12px] text-[#0066cc] hover:underline"
+            className="text-[12px] text-[#52525b] hover:underline"
           >
             {expanded ? 'Ocultar detalhes' : 'Ver conduta'}
           </button>
@@ -207,8 +207,8 @@ const ProtocolCard: React.FC<ProtocolCardProps> = ({
             onClick={onApply}
             className={`flex items-center space-x-1 rounded-full px-3.5 py-1 text-[12px] font-medium transition active:scale-95 ${
               isSelected
-                ? 'bg-emerald-600 text-white'
-                : 'bg-[#0066cc] text-white hover:bg-[#0071e3]'
+                ? 'bg-neutral-600 text-white'
+                : 'bg-[#52525b] text-white hover:bg-[#3f3f46]'
             }`}
           >
             {isSelected ? (
@@ -246,8 +246,8 @@ const ProtocolCard: React.FC<ProtocolCardProps> = ({
           </div>
 
           {item.alertasClinicos && item.alertasClinicos.length > 0 && (
-            <div className="rounded-xl bg-amber-50 border border-amber-200 p-2 text-amber-900 flex items-start space-x-1.5">
-              <AlertTriangle className="h-4 w-4 shrink-0 text-amber-600 mt-0.5" />
+            <div className="rounded-xl bg-neutral-50 border border-neutral-200 p-2 text-neutral-900 flex items-start space-x-1.5">
+              <AlertTriangle className="h-4 w-4 shrink-0 text-neutral-600 mt-0.5" />
               <div>
                 <span className="font-semibold">Sinais de Alerta:</span>{' '}
                 {item.alertasClinicos.join(' | ')}

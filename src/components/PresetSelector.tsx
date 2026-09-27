@@ -22,7 +22,7 @@ export const PresetSelector: React.FC<PresetSelectorProps> = ({
     <div className="no-print rounded-[18px] border border-[#e0e0e0] bg-white p-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
         <div className="flex items-center space-x-2">
-          <Sparkles className="h-4 w-4 text-[#0066cc]" />
+          <Sparkles className="h-4 w-4 text-[#52525b]" />
           <h3 className="text-[14px] font-semibold text-[#1d1d1f]">
             Modelos Rápidos & Casos de Referência
           </h3>
@@ -32,7 +32,7 @@ export const PresetSelector: React.FC<PresetSelectorProps> = ({
           <button
             type="button"
             onClick={onOpenReadyCases}
-            className="flex items-center space-x-1.5 rounded-full bg-[#0066cc] px-3.5 py-1 text-[12px] font-semibold text-white shadow-sm transition hover:bg-[#0071e3] active:scale-95"
+            className="flex items-center space-x-1.5 rounded-full bg-[#52525b] px-3.5 py-1 text-[12px] font-semibold text-white shadow-sm transition hover:bg-[#3f3f46] active:scale-95"
           >
             <BookOpen className="h-3.5 w-3.5" />
             <span>Ver os 20 Casos Prontos</span>
@@ -45,15 +45,15 @@ export const PresetSelector: React.FC<PresetSelectorProps> = ({
         <button
           type="button"
           onClick={() => onSelectPreset(PDF_SYNTHETIC_EXAMPLE)}
-          className="flex flex-col text-left rounded-xl border border-[#0066cc]/30 bg-[#0066cc]/5 p-3 hover:bg-[#0066cc]/10 transition active:scale-95 group"
+          className="flex flex-col text-left rounded-xl border border-[#52525b]/30 bg-[#52525b]/5 p-3 hover:bg-[#52525b]/10 transition active:scale-95 group"
         >
           <div className="flex items-center justify-between mb-1">
-            <span className="inline-block rounded-md bg-[#0066cc] px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+            <span className="inline-block rounded-md bg-[#52525b] px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
               Oficial do PDF
             </span>
-            <Activity className="h-3.5 w-3.5 text-[#0066cc]" />
+            <Activity className="h-3.5 w-3.5 text-[#52525b]" />
           </div>
-          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#0066cc]">
+          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#52525b]">
             Evolução Hospitalar - ICC
           </span>
           <span className="text-[11px] text-[#7a7a7a] mt-0.5">
@@ -68,12 +68,12 @@ export const PresetSelector: React.FC<PresetSelectorProps> = ({
           className="flex flex-col text-left rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 hover:bg-[#f0f0f0] transition active:scale-95 group"
         >
           <div className="flex items-center justify-between mb-1">
-            <span className="inline-block rounded-md bg-rose-600 px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+            <span className="inline-block rounded-md bg-neutral-600 px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
               Cardiologia
             </span>
-            <HeartPulse className="h-3.5 w-3.5 text-rose-600" />
+            <HeartPulse className="h-3.5 w-3.5 text-neutral-600" />
           </div>
-          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#0066cc]">
+          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#52525b]">
             Anamnese - Dor Torácica (SCA)
           </span>
           <span className="text-[11px] text-[#7a7a7a] mt-0.5">
@@ -129,12 +129,12 @@ export const PresetSelector: React.FC<PresetSelectorProps> = ({
           className="flex flex-col text-left rounded-xl border border-[#e0e0e0] bg-[#fafafc] p-3 hover:bg-[#f0f0f0] transition active:scale-95 group"
         >
           <div className="flex items-center justify-between mb-1">
-            <span className="inline-block rounded-md bg-blue-600 px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+            <span className="inline-block rounded-md bg-neutral-600 px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
               Pneumologia
             </span>
-            <Stethoscope className="h-3.5 w-3.5 text-blue-600" />
+            <Stethoscope className="h-3.5 w-3.5 text-neutral-600" />
           </div>
-          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#0066cc]">
+          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#52525b]">
             Anamnese - Pneumonia (PAC)
           </span>
           <span className="text-[11px] text-[#7a7a7a] mt-0.5">
@@ -154,7 +154,7 @@ export const PresetSelector: React.FC<PresetSelectorProps> = ({
             </span>
             <FilePlus2 className="h-3.5 w-3.5 text-slate-600" />
           </div>
-          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#0066cc]">
+          <span className="text-[13px] font-semibold text-[#1d1d1f] group-hover:text-[#52525b]">
             Novo Paciente
           </span>
           <span className="text-[11px] text-[#7a7a7a] mt-0.5">

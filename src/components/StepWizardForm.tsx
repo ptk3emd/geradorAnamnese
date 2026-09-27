@@ -259,12 +259,12 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
               <div className="flex items-center space-x-1.5 text-[11px] text-neutral-400 bg-neutral-800/80 px-2.5 py-0.5 rounded-md border border-neutral-700">
                 {autosaveStatus.isSaving ? (
                   <>
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-neutral-400 animate-pulse" />
                     <span>Salvando...</span>
                   </>
                 ) : autosaveStatus.lastSaved ? (
                   <>
-                    <CheckCircle2 className="h-3 w-3 text-emerald-400" />
+                    <CheckCircle2 className="h-3 w-3 text-neutral-400" />
                     <span>Salvo</span>
                   </>
                 ) : (

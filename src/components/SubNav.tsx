@@ -91,7 +91,7 @@ export const SubNav: React.FC<SubNavProps> = ({
               value={specialty}
               onChange={(e) => onSelectSpecialty(e.target.value as SpecialtyProfile)}
               aria-label="Perfil da Especialidade"
-              className="min-h-10 w-full cursor-pointer rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-[12px] text-neutral-200 focus:border-emerald-400 focus:outline-none sm:w-auto"
+              className="min-h-10 w-full cursor-pointer rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-[12px] text-neutral-200 focus:border-neutral-400 focus:outline-none sm:w-auto"
             >
               {SPECIALTY_OPTIONS.map((opt) => (
                 <option key={opt.id} value={opt.id} className="bg-neutral-900 text-neutral-100">

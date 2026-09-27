@@ -154,7 +154,7 @@ export const CidSearchBox: React.FC<CidSearchBoxProps> = ({
                       {item.description}
                     </span>
                     {isCurrentlySelected && (
-                      <span className="inline-flex items-center space-x-1 text-[10.5px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      <span className="inline-flex items-center space-x-1 text-[10.5px] font-medium text-neutral-400 bg-neutral-500/10 px-2 py-0.5 rounded-full border border-neutral-500/20">
                         <Check className="h-3 w-3" />
                         <span>Selecionado</span>
                       </span>
@@ -180,7 +180,7 @@ export const CidSearchBox: React.FC<CidSearchBoxProps> = ({
                     title="Inserir como Hipótese Diagnóstica Principal"
                     className={`inline-flex items-center space-x-1.5 rounded-full px-3.5 py-1.5 text-[11.5px] font-medium transition active:scale-95 shadow-sm ${
                       wasJustInserted
-                        ? 'bg-emerald-500 text-black'
+                        ? 'bg-neutral-500 text-black'
                         : 'bg-white text-black hover:bg-neutral-200'
                     }`}
                   >

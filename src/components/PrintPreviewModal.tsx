@@ -98,7 +98,7 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                 <h3 className="text-[13.5px] sm:text-[14px] font-medium text-white tracking-tight">
                   Visualização de Impressão (A4)
                 </h3>
-                <span className="rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-1.5 py-0.5 text-[9.5px] uppercase font-semibold">
+                <span className="rounded bg-neutral-500/15 text-neutral-300 border border-neutral-500/30 px-1.5 py-0.5 text-[9.5px] uppercase font-semibold">
                   CFM
                 </span>
               </div>
@@ -386,7 +386,7 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                         </div>
                         <div>
                           <strong>Alergias:</strong>{' '}
-                          <span className="text-red-700 font-semibold">
+                          <span className="text-neutral-700 font-semibold">
                             {data.resumoProblemas.comorbidadesAlergias?.includes('Alergia')
                               ? data.resumoProblemas.comorbidadesAlergias
                               : 'Nega alergias medicamentosas conhecidas.'}

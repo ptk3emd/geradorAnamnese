@@ -101,7 +101,7 @@ export const DocumentReviewView: React.FC<DocumentReviewViewProps> = ({
             title="Copiar texto do documento"
             className="inline-flex items-center space-x-1.5 rounded-md border border-neutral-700 bg-neutral-800 px-3 py-1 text-neutral-200 hover:text-white transition"
           >
-            {copied ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+            {copied ? <Check className="h-3 w-3 text-neutral-400" /> : <Copy className="h-3 w-3" />}
             <span>{copied ? 'Copiado' : 'Copiar'}</span>
           </button>
 

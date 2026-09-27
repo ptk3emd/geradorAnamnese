@@ -129,7 +129,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
           </div>
 
           {copiedNotification && (
-            <div className="flex items-center space-x-1.5 text-[11.5px] text-emerald-300 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 rounded-full animate-in fade-in">
+            <div className="flex items-center space-x-1.5 text-[11.5px] text-neutral-300 bg-neutral-950/60 border border-neutral-500/30 px-3 py-1 rounded-full animate-in fade-in">
               <Check className="h-3.5 w-3.5" />
               <span>{copiedNotification}</span>
             </div>

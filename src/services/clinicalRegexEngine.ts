@@ -281,9 +281,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
     const lines: string[] = [];
 
     // Cabeçalho
-    lines.push('================================================================================');
     lines.push('                       EVOLUÇÃO MÉDICA DIÁRIA - MODELO COMPLETO                 ');
-    lines.push('================================================================================');
     lines.push(`Paciente/iniciais: ${data.identificacao.nomeIniciais || 'Não informado'}   |   Idade: ${idadeStr}   |   Leito: ${data.identificacao.leito || 'N/I'}`);
     lines.push(`Data/Hora: ${dataHoraStr}   |   Usuário: ${respStr}`);
     lines.push('');
@@ -382,9 +380,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
   // Format: Roteiro Pedagógico para Anamnese (MCCP - Método Clínico Centrado na Pessoa)
   if (format === 'pedagogico-mccp') {
     const lines: string[] = [];
-    lines.push('================================================================================');
     lines.push('          ANAMNESE PEDAGÓGICA CENTRADA NA PESSOA (MCCP & SEMIOLOGIA)           ');
-    lines.push('================================================================================');
     lines.push('');
     lines.push('1. IDENTIFICAÇÃO DO PACIENTE');
     lines.push(`• Nome/Iniciais: ${data.identificacao.nomeIniciais || 'Não identificado'}`);
@@ -461,9 +457,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
 
   // Format 3 & 4: Anamnese Médica Completa (Matching PUCRS & Roteiro Adulto)
   const lines: string[] = [];
-  lines.push('================================================================================');
   lines.push('               ANAMNESE MÉDICA COMPLETA DO PACIENTE ADULTO                      ');
-  lines.push('================================================================================');
   lines.push('');
   lines.push('1. IDENTIFICAÇÃO (ID)');
   lines.push(`• Nome/Iniciais: ${data.identificacao.nomeIniciais || 'Não identificado'}`);

@@ -53,7 +53,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
     <div className="rounded-[18px] border border-[#e0e0e0] bg-white p-5 shadow-none transition-all">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#f0f0f0] pb-3">
         <div className="flex items-center space-x-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#0066cc]/10 text-[#0066cc]">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#52525b]/10 text-[#52525b]">
             <UserCheck className="h-3.5 w-3.5" />
           </div>
           <div>
@@ -70,7 +70,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
           <button
             type="button"
             onClick={handleApplyNormalExam}
-            className="flex items-center space-x-1.5 rounded-full bg-[#fafafc] border border-[#e0e0e0] px-3 py-1 text-[12px] font-medium text-[#0066cc] hover:bg-[#0066cc]/10 transition active:scale-95"
+            className="flex items-center space-x-1.5 rounded-full bg-[#fafafc] border border-[#e0e0e0] px-3 py-1 text-[12px] font-medium text-[#52525b] hover:bg-[#52525b]/10 transition active:scale-95"
           >
             <Sparkles className="h-3 w-3" />
             <span>Padrão Normal</span>
@@ -98,7 +98,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
             value={exam.estadoGeral}
             onChange={(e) => handleFieldChange('estadoGeral', e.target.value)}
             placeholder="BEG, LOTE, corado, hidratado, anictérico, acianótico, afebril"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -112,7 +112,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
             value={exam.cabecaPescoco}
             onChange={(e) => handleFieldChange('cabecaPescoco', e.target.value)}
             placeholder="Pupilas isocóricas e fotorreagentes, sem turgência jugular a 45°"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -126,7 +126,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
             value={exam.acv}
             onChange={(e) => handleFieldChange('acv', e.target.value)}
             placeholder="RCR, 2T, BNF, sem sopros audíveis"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -140,7 +140,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
             value={exam.aResp}
             onChange={(e) => handleFieldChange('aResp', e.target.value)}
             placeholder="MVUA, sem RA (ou crepitações bibasais / sibilos)"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -154,7 +154,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
             value={exam.abdome}
             onChange={(e) => handleFieldChange('abdome', e.target.value)}
             placeholder="Plano, flácido, RHA+, indolor à palpação, descompressão indolor"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -168,7 +168,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
             value={exam.extremidades}
             onChange={(e) => handleFieldChange('extremidades', e.target.value)}
             placeholder="Sem edema, pulsos simétricos, panturrilhas livres (ou edema +/4+)"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
 
@@ -182,7 +182,7 @@ export const PhysicalExamSection: React.FC<PhysicalExamSectionProps> = ({
             value={exam.neurologicoPele}
             onChange={(e) => handleFieldChange('neurologicoPele', e.target.value)}
             placeholder="Vigil, orientado no tempo e espaço, sem déficits focais motores ou sensitivos"
-            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#0066cc] focus:bg-white"
+            className="w-full rounded-xl border border-[#e0e0e0] bg-[#fafafc] px-3 py-2 text-[12px] text-[#1d1d1f] outline-none focus:border-[#52525b] focus:bg-white"
           />
         </div>
       </div>

@@ -152,7 +152,7 @@ export default function App() {
   const checklistCompletedCount = Object.values(checklist).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-white flex flex-col font-['Poppins','Inter',sans-serif] selection:bg-neutral-800 selection:text-white relative">
+    <div className="min-h-screen bg-[#08090b] text-white flex flex-col font-['Poppins','Inter',sans-serif] selection:bg-neutral-800 selection:text-white relative">
       {/* 1. Minimal Topbar with essentials */}
       <HeaderNav
         onDownloadPdf={handleDownloadPdf}
@@ -176,15 +176,15 @@ export default function App() {
       <main className="mx-auto w-full max-w-6xl flex-1 px-3 sm:px-6 py-3 sm:py-5 space-y-4">
         {/* Autosave Recovery Banner when session restored */}
         {restoredFromAutosave && (
-          <div className="no-print p-3.5 sm:px-5 rounded-xl bg-neutral-900 border border-emerald-500/35 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md animate-in fade-in slide-in-from-top-1">
+          <div className="no-print p-3.5 sm:px-5 rounded-xl bg-neutral-900 border border-neutral-500/35 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md animate-in fade-in slide-in-from-top-1">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-lg bg-emerald-500/15 text-emerald-400 shrink-0">
+              <div className="p-2 rounded-lg bg-neutral-500/15 text-neutral-400 shrink-0">
                 <CheckCircle2 className="h-4 w-4" />
               </div>
               <div>
                 <h4 className="text-[13px] font-medium text-white flex items-center gap-2">
                   <span>Progresso restaurado da última sessão</span>
-                  <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">
+                  <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-neutral-500/20 text-neutral-300 font-semibold">
                     Autosave
                   </span>
                 </h4>
@@ -208,7 +208,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={handleResetBlank}
-                className="px-3.5 py-1.5 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-300 border border-red-500/20 text-[12px] font-medium transition active:scale-95"
+                className="px-3.5 py-1.5 rounded-lg bg-neutral-500/15 hover:bg-neutral-500/25 text-neutral-300 border border-neutral-500/20 text-[12px] font-medium transition active:scale-95"
               >
                 Descartar rascunho
               </button>
@@ -304,7 +304,7 @@ export default function App() {
       {/* Toast Notification - Clean 8px Radius */}
       {toastMessage && (
         <div className="no-print fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-2.5 text-[12px] font-normal text-white shadow-xl flex items-center space-x-2 animate-in fade-in slide-in-from-bottom-2">
-          <Check className="h-4 w-4 text-emerald-400" />
+          <Check className="h-4 w-4 text-neutral-400" />
           <span>{toastMessage}</span>
         </div>
       )}
