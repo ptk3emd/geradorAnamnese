@@ -274,7 +274,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
   const idadeStr = data.identificacao.idade ? `${data.identificacao.idade} ${data.identificacao.idadeUnidade}` : 'idade não informada';
   const leitoStr = data.identificacao.leito ? `leito ${data.identificacao.leito}` : '';
   const dataHoraStr = `${data.identificacao.data || new Date().toLocaleDateString('pt-BR')} - ${data.identificacao.hora || new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
-  const respStr = data.identificacao.responsavel || 'Médico Assistente';
+  const respStr = data.identificacao.responsavel || 'Assinatura do Usuário';
 
   // Format 1: SOAP com Problemas numerados (Strict match to Page 1, 2, 5 of PDF)
   if (format === 'soap-problemas' || (isEvolucao && format === 'completo')) {
@@ -285,7 +285,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
     lines.push('                       EVOLUÇÃO MÉDICA DIÁRIA - MODELO COMPLETO                 ');
     lines.push('================================================================================');
     lines.push(`Paciente/iniciais: ${data.identificacao.nomeIniciais || 'Não informado'}   |   Idade: ${idadeStr}   |   Leito: ${data.identificacao.leito || 'N/I'}`);
-    lines.push(`Data/Hora: ${dataHoraStr}   |   Responsável: ${respStr} ${data.identificacao.crm ? `(CRM: ${data.identificacao.crm})` : ''}`);
+    lines.push(`Data/Hora: ${dataHoraStr}   |   Usuário: ${respStr}`);
     lines.push('');
 
     // Resumo Inicial por problemas (#1 a #7)
@@ -362,7 +362,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
     lines.push(`4. Plano de alta / seguimento: ${data.planoAltaSeguimento || activeProtocol?.orientacoesAlta || 'Conduta mantida, reavaliar em 24h ou antes se intercorrências.'}`);
     lines.push('');
     lines.push('________________________________________________________________');
-    lines.push(`${respStr} ${data.identificacao.crm ? `| CRM: ${data.identificacao.crm}` : ''}`);
+    lines.push(`${respStr}`);
 
     return lines.join('\n');
   }
@@ -454,7 +454,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
     lines.push(`• Seguimento e Critérios de Retorno: ${data.planoAltaSeguimento || 'Retorno programado para acompanhamento ambulatorial.'}`);
     lines.push('');
     lines.push('________________________________________________________________');
-    lines.push(`${respStr} ${data.identificacao.crm ? `| CRM: ${data.identificacao.crm}` : ''}`);
+    lines.push(`${respStr}`);
 
     return lines.join('\n');
   }
@@ -475,7 +475,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
   if (data.identificacao.filiacao) lines.push(`• Nome da Mãe / Filiação: ${data.identificacao.filiacao}`);
   if (data.identificacao.convenioSus) lines.push(`• Convênio / SUS: ${data.identificacao.convenioSus}   |   Leito/Enfermaria: ${data.identificacao.leito || data.identificacao.clinicaEnfermaria || 'N/I'}`);
   lines.push(`• Acompanhante / Informante: ${data.identificacao.acompanhante || 'O próprio paciente'} (Confiabilidade: ${data.identificacao.confiabilidade || 'boa'})`);
-  lines.push(`• Data/Hora do Atendimento: ${dataHoraStr}   |   Médico Responsável: ${respStr}`);
+  lines.push(`• Data/Hora do Atendimento: ${dataHoraStr}   |   Responsável: ${respStr}`);
   lines.push('');
 
   lines.push('2. QUEIXA PRINCIPAL (QP)');
@@ -601,7 +601,7 @@ export function generateClinicalDocument(data: ClinicalData, format: OutputForma
   lines.push(`• Plano de Seguimento / Critérios de Reavaliação: ${data.planoAltaSeguimento || activeProtocol?.orientacoesAlta || 'Reavaliação após resultado de exames e estabilização dos sintomas.'}`);
   lines.push('');
   lines.push('________________________________________________________________');
-  lines.push(`${respStr} ${data.identificacao.crm ? `| CRM: ${data.identificacao.crm}` : ''}`);
+  lines.push(`${respStr}`);
 
   return lines.join('\n');
 }

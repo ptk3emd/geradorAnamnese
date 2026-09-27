@@ -36,35 +36,36 @@ export const SubNav: React.FC<SubNavProps> = ({
   onOpenRoteiros,
 }) => {
   return (
-    <div className="no-print w-full py-3 px-4 sm:px-6">
-      <div className="mx-auto flex flex-col md:flex-row items-center justify-between gap-3 max-w-6xl">
-        {/* Document Model Switcher - Glass Capsule */}
-        <div className="flex items-center space-x-2">
-          <div className="flex items-center p-1 rounded-full bg-white/[0.05] border border-white/[0.12] backdrop-blur-xl">
+    <div className="no-print w-full py-2.5 px-3 sm:px-6 bg-[#080c14]/60 border-b border-neutral-800/80">
+      <div className="mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5 max-w-6xl">
+        {/* Left Side: Document Model Switcher & Guides */}
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Segmented Control - Clean 8px Radius */}
+          <div className="flex items-center p-1 rounded-lg bg-neutral-900 border border-neutral-800 text-[12.5px] w-full sm:w-auto">
             <button
               type="button"
               onClick={() => onSelectDocumentType('anamnese')}
-              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-full text-[13px] font-normal transition active:scale-95 ${
+              className={`min-h-10 flex flex-1 items-center justify-center space-x-1.5 rounded-md px-3.5 py-1.5 font-medium transition sm:flex-initial ${
                 documentType === 'anamnese'
-                  ? 'bg-white text-black font-medium shadow-md'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-neutral-100 text-neutral-950 shadow-sm'
+                  : 'text-neutral-400 hover:text-white'
               }`}
             >
               <ClipboardList className="h-3.5 w-3.5" />
-              <span>Anamnese Completa</span>
+              <span>Anamnese</span>
             </button>
 
             <button
               type="button"
               onClick={() => onSelectDocumentType('evolucao')}
-              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-full text-[13px] font-normal transition active:scale-95 ${
+              className={`min-h-10 flex flex-1 items-center justify-center space-x-1.5 rounded-md px-3.5 py-1.5 font-medium transition sm:flex-initial ${
                 documentType === 'evolucao'
-                  ? 'bg-white text-black font-medium shadow-md'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-neutral-100 text-neutral-950 shadow-sm'
+                  : 'text-neutral-400 hover:text-white'
               }`}
             >
               <Activity className="h-3.5 w-3.5" />
-              <span>Evolução Diária (SOAP)</span>
+              <span>Evolução (SOAP)</span>
             </button>
           </div>
 
@@ -72,27 +73,28 @@ export const SubNav: React.FC<SubNavProps> = ({
             <button
               type="button"
               onClick={onOpenRoteiros}
-              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[12.5px] border border-white/[0.14] bg-white/[0.05] text-white/80 hover:text-white hover:bg-white/[0.1] transition active:scale-95"
+              className="flex min-h-10 items-center space-x-1.5 rounded-lg border border-neutral-800 bg-neutral-900/80 px-3 py-1.5 text-[12px] text-neutral-300 transition hover:bg-neutral-800 hover:text-white"
               title="Consultar Roteiro Adulto (PUCRS) e Roteiro Pedagógico (MCCP)"
             >
-              <BookOpen className="h-3.5 w-3.5 text-white/90" />
-              <span>Roteiros & Guias</span>
+              <BookOpen className="h-3.5 w-3.5 text-neutral-400" />
+              <span className="hidden xs:inline">Roteiros Clínicos</span>
+              <span className="xs:hidden">Roteiros</span>
             </button>
           )}
         </div>
 
         {/* Right side: Specialty Select & View Toggle */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center justify-between sm:justify-end gap-2">
           {/* Specialty Dropdown */}
-          <div className="flex items-center space-x-1.5 text-white/50 text-[12px]">
+          <div className="flex-1 sm:flex-initial">
             <select
               value={specialty}
               onChange={(e) => onSelectSpecialty(e.target.value as SpecialtyProfile)}
               aria-label="Perfil da Especialidade"
-              className="rounded-full border border-white/[0.14] bg-white/[0.05] px-3.5 py-1.5 text-[12.5px] text-white/90 backdrop-blur-xl focus:outline-none focus:border-white/40 cursor-pointer"
+              className="min-h-10 w-full cursor-pointer rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-[12px] text-neutral-200 focus:border-emerald-400 focus:outline-none sm:w-auto"
             >
               {SPECIALTY_OPTIONS.map((opt) => (
-                <option key={opt.id} value={opt.id} className="bg-[#121316] text-white">
+                <option key={opt.id} value={opt.id} className="bg-neutral-900 text-neutral-100">
                   {opt.label}
                 </option>
               ))}
@@ -100,14 +102,14 @@ export const SubNav: React.FC<SubNavProps> = ({
           </div>
 
           {/* Toggle Form / Preview mode */}
-          <div className="flex items-center p-1 rounded-full bg-white/[0.05] border border-white/[0.12] backdrop-blur-xl">
+          <div className="flex items-center p-1 rounded-lg bg-neutral-900 border border-neutral-800 text-[12px] shrink-0">
             <button
               type="button"
               onClick={() => onToggleView('form')}
-              className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[12px] transition ${
+              className={`flex min-h-10 items-center space-x-1.5 rounded-md px-3 py-1.5 transition ${
                 activeView === 'form'
-                  ? 'bg-white text-black font-medium shadow-sm'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-neutral-100 text-neutral-950 font-medium shadow-sm'
+                  : 'text-neutral-400 hover:text-white'
               }`}
             >
               <Edit3 className="h-3 w-3" />
@@ -116,14 +118,14 @@ export const SubNav: React.FC<SubNavProps> = ({
             <button
               type="button"
               onClick={() => onToggleView('preview')}
-              className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-[12px] transition ${
+              className={`flex min-h-10 items-center space-x-1.5 rounded-md px-3 py-1.5 transition ${
                 activeView === 'preview'
-                  ? 'bg-white text-black font-medium shadow-sm'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-neutral-100 text-neutral-950 font-medium shadow-sm'
+                  : 'text-neutral-400 hover:text-white'
               }`}
             >
               <Eye className="h-3 w-3" />
-              <span>Leitura no App</span>
+              <span>Leitura</span>
             </button>
           </div>
         </div>

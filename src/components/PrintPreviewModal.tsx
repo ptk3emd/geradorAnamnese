@@ -35,7 +35,12 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
   data,
   onDownloadPdf,
 }) => {
-  const [zoomLevel, setZoomLevel] = useState<number>(100);
+  const [zoomLevel, setZoomLevel] = useState<number>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 640) {
+      return 55;
+    }
+    return 100;
+  });
   const [format, setFormat] = useState<OutputFormat>(data.formatoSaida || 'completo');
 
   // Close on Escape key press
@@ -70,8 +75,8 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
   };
 
   const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 15, 160));
-  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 15, 60));
-  const handleResetZoom = () => setZoomLevel(100);
+  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 15, 45));
+  const handleResetZoom = () => setZoomLevel(typeof window !== 'undefined' && window.innerWidth < 640 ? 55 : 100);
 
   const documentPlainText = generateClinicalDocument(data, format);
 
@@ -79,42 +84,42 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
   const currentTime = data.identificacao.hora || new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-black/85 backdrop-blur-2xl animate-in fade-in duration-200 print:static print:bg-white print:p-0">
-      {/* Top Floating Control Bar - Glass Capsule */}
-      <div className="no-print shrink-0 border-b border-white/[0.12] bg-[#0c0e12]/90 backdrop-blur-xl px-4 py-3 sm:px-6">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
+    <div className="fixed inset-0 z-50 flex flex-col bg-black/90 backdrop-blur-md animate-in fade-in duration-150 print:static print:bg-white print:p-0">
+      {/* Top Floating Control Bar - Clean 12px Radius Panel */}
+      <div className="no-print shrink-0 border-b border-neutral-800 bg-neutral-950 px-3 py-2.5 sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2.5">
           {/* Document Info */}
-          <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-2xl bg-white/10 text-white shrink-0">
+          <div className="flex items-center space-x-2.5">
+            <div className="p-1.5 rounded-md bg-neutral-800 text-neutral-200 shrink-0">
               <Printer className="h-4 w-4" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h3 className="text-[14.5px] font-medium text-white tracking-tight">
-                  Visualização de Impressão (Papel A4)
+                <h3 className="text-[13.5px] sm:text-[14px] font-medium text-white tracking-tight">
+                  Visualização de Impressão (A4)
                 </h3>
-                <span className="rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 text-[10px] uppercase font-semibold">
-                  Padrão Hospitalar CFM
+                <span className="rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-1.5 py-0.5 text-[9.5px] uppercase font-semibold">
+                  CFM
                 </span>
               </div>
-              <p className="text-[11.5px] text-white/50">
+              <p className="text-[11px] text-neutral-400 hidden sm:block">
                 Dimensões A4 (210mm × 297mm) com margens regulamentadas e carimbo médico.
               </p>
             </div>
           </div>
 
           {/* Format Selectors */}
-          <div className="flex items-center space-x-1 rounded-full bg-white/[0.06] p-1 border border-white/[0.1] text-[11.5px]">
+          <div className="flex items-center space-x-1 rounded-md bg-neutral-900 p-0.5 border border-neutral-800 text-[11px]">
             {(['completo', 'sintetico', 'soap-problemas', 'academico', 'pedagogico-mccp'] as const).map(
               (fmt) => (
                 <button
                   key={fmt}
                   type="button"
                   onClick={() => setFormat(fmt)}
-                  className={`px-3 py-1 rounded-full transition ${
+                  className={`px-2.5 py-1 rounded transition ${
                     format === fmt
-                      ? 'bg-white text-black font-medium shadow-sm'
-                      : 'text-white/60 hover:text-white'
+                      ? 'bg-neutral-100 text-neutral-950 font-medium shadow-sm'
+                      : 'text-neutral-400 hover:text-white'
                   }`}
                 >
                   {fmt === 'pedagogico-mccp'
@@ -132,22 +137,22 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
           </div>
 
           {/* Zoom and Actions */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1.5">
             {/* Zoom Controls */}
-            <div className="hidden sm:flex items-center space-x-1 rounded-full bg-white/[0.06] p-1 border border-white/[0.1] text-white/70">
+            <div className="flex items-center space-x-0.5 rounded-md bg-neutral-900 p-0.5 border border-neutral-800 text-neutral-300">
               <button
                 type="button"
                 onClick={handleZoomOut}
                 title="Reduzir zoom"
-                className="p-1 rounded-full hover:bg-white/10 hover:text-white transition"
+                className="p-1 rounded hover:bg-neutral-800 hover:text-white transition"
               >
                 <ZoomOut className="h-3.5 w-3.5" />
               </button>
               <button
                 type="button"
                 onClick={handleResetZoom}
-                className="px-2 text-[11px] font-mono hover:text-white"
-                title="Redefinir 100%"
+                className="px-1.5 text-[10.5px] font-mono hover:text-white"
+                title="Redefinir zoom"
               >
                 {zoomLevel}%
               </button>
@@ -155,7 +160,7 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                 type="button"
                 onClick={handleZoomIn}
                 title="Aumentar zoom"
-                className="p-1 rounded-full hover:bg-white/10 hover:text-white transition"
+                className="p-1 rounded hover:bg-neutral-800 hover:text-white transition"
               >
                 <ZoomIn className="h-3.5 w-3.5" />
               </button>
@@ -165,27 +170,27 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
             <button
               type="button"
               onClick={handlePrint}
-              className="flex items-center space-x-1.5 rounded-full bg-white text-black hover:bg-neutral-200 px-4 py-1.5 text-[12.5px] font-medium transition active:scale-95 shadow-md"
+              className="flex items-center space-x-1.5 rounded-lg bg-neutral-100 text-neutral-950 hover:bg-white px-3 sm:px-3.5 py-1.5 text-[12px] font-medium transition active:scale-95 shadow-sm"
             >
               <Printer className="h-3.5 w-3.5" />
-              <span>Imprimir</span>
+              <span className="hidden xs:inline sm:inline">Imprimir</span>
             </button>
 
             {/* Download PDF Button */}
             <button
               type="button"
               onClick={handleDownload}
-              className="flex items-center space-x-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-1.5 text-[12.5px] font-medium text-white transition active:scale-95 shadow-sm"
+              className="flex items-center space-x-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 px-3 py-1.5 text-[12px] font-medium text-white transition active:scale-95 shadow-sm"
             >
               <FileDown className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">PDF</span>
+              <span>PDF</span>
             </button>
 
             {/* Close Button */}
             <button
               type="button"
               onClick={onClose}
-              className="p-2 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition"
+              className="p-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-800 transition ml-1"
               title="Fechar (Esc)"
             >
               <X className="h-5 w-5" />
@@ -302,15 +307,9 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                     </span>
                   </div>
                   <div>
-                    <span className="text-neutral-500">Médico Assistente:</span>{' '}
+                    <span className="text-neutral-500">Usuário:</span>{' '}
                     <span className="text-neutral-800 font-medium">
-                      {data.identificacao.responsavel || 'Plantonista'}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-neutral-500">CRM:</span>{' '}
-                    <span className="text-neutral-800 font-mono font-semibold">
-                      {data.identificacao.crm || 'N/I'}
+                      {data.identificacao.responsavel || 'Não informado'}
                     </span>
                   </div>
                 </div>
@@ -601,16 +600,13 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                   </p>
                 </div>
 
-                {/* Professional Stamp and Signature Box */}
+                {/* Signature Box */}
                 <div className="text-center min-w-[200px] border-t border-neutral-800 pt-1.5">
-                  <div className="text-[10.5px] font-bold text-neutral-900">
-                    Dr(a). {data.identificacao.responsavel || 'Médico(a) Assistente'}
+                  <div className="text-[11px] font-bold text-neutral-900">
+                    {data.identificacao.responsavel || 'Assinatura do Usuário'}
                   </div>
-                  <div className="text-[9.5px] font-mono text-neutral-700">
-                    CRM: {data.identificacao.crm || '_____________________'}
-                  </div>
-                  <div className="text-[8.5px] text-neutral-500">
-                    Assinatura / Carimbo Profissional
+                  <div className="text-[9px] text-neutral-600">
+                    Assinatura do Usuário
                   </div>
                 </div>
               </div>

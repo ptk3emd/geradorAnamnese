@@ -43,7 +43,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Dor Torácica / Precordialgia',
     triggerRegex: /(dor tor[aá]cica|precordial|dor no peito|queima[çc][aã]o no peito|aperto no peito|angina|retroesternal|dor ventilat[oó]rio-dependente|dor pleur[ií]tica)/i,
-    color: 'border-red-500/40 text-red-300 bg-red-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'dor-toracica-pulsos',
@@ -95,7 +95,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Dispneia / Desconforto Respiratório',
     triggerRegex: /(dispneia|falta de ar|cansa[çc]o|dificuldade para respirar|ortopneia|dpn|sufoca[çc][aã]o|chieira|chiado)/i,
-    color: 'border-amber-500/40 text-amber-300 bg-amber-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'dispneia-tiragem-respiratorio',
@@ -138,7 +138,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Dor Abdominal / Abdome Agudo',
     triggerRegex: /(dor abdominal|dor na barriga|epigastr|fossa il[ií]aca|c[oó]lica abdominal|abdome agudo|n[aá]usea|v[oô]mito|parada de fezes)/i,
-    color: 'border-yellow-500/40 text-yellow-300 bg-yellow-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'dor-abd-blumberg-descompressao',
@@ -190,7 +190,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Cefaleia / Dor de Cabeça',
     triggerRegex: /(cefaleia|dor de cabe[çc]a|enxaqueca|holocraniana|puls[aá]til na cabe[çc]a|fotofobia)/i,
-    color: 'border-purple-500/40 text-purple-300 bg-purple-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'cefaleia-meningeos',
@@ -233,7 +233,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Febre / Síndrome Infecciosa Aguda',
     triggerRegex: /(febre|febril|calafrio|tax elevada|sudorese noturna|calafrios|bacteri[ae]|infec[çc][aã]o)/i,
-    color: 'border-orange-500/40 text-orange-300 bg-orange-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'febre-ectoscopia-pele-tec',
@@ -267,7 +267,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Síncope / Vertigem / Tontura',
     triggerRegex: /(s[ií]ncope|desmaio|lipotimia|tontura|vertigem|escurecimento visual|perda transit[oó]ria da consci[eê]ncia)/i,
-    color: 'border-cyan-500/40 text-cyan-300 bg-cyan-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'sincope-pa-ortostatica',
@@ -301,7 +301,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Edema de MMII / Suspeita de TVP',
     triggerRegex: /(edema de membros|pernas inchadas|dor na panturrilha|edema unilateral|trombose|tvp|incha[çc]o nas pernas)/i,
-    color: 'border-blue-500/40 text-blue-300 bg-blue-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'tvp-panturrilha-homans',
@@ -326,7 +326,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Déficit Neurológico Focal / Suspeita de AVC',
     triggerRegex: /(fraqueza de um lado|perda de for[çc]a|dorm[eê]ncia|boca torta|dificuldade para falar|disartria|hemiparesia|avc|ave|isquemia cerebral)/i,
-    color: 'border-rose-500/40 text-rose-300 bg-rose-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'avc-escala-cincinnati',
@@ -360,7 +360,7 @@ const SYNDROME_RULES: SyndromeRule[] = [
   {
     name: 'Lombalgia / Dor Lombar Aguda',
     triggerRegex: /(lombalgia|dor na coluna|dor nas costas|ci[aá]tic|irradia[çc][aã]o para perna|dor lombar)/i,
-    color: 'border-emerald-500/40 text-emerald-300 bg-emerald-500/10',
+    color: 'border-neutral-700 text-neutral-200 bg-neutral-800',
     suggestions: [
       {
         id: 'lomb-lasegue',

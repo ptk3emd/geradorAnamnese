@@ -53,11 +53,11 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="relative w-full max-w-5xl rounded-3xl bg-[#0c0e13] border border-white/[0.14] text-white shadow-2xl flex flex-col max-h-[90vh] overflow-hidden">
+      <div className="relative w-full max-w-5xl rounded-xl bg-[#0c0e13] border border-white/[0.14] text-white shadow-2xl flex flex-col max-h-[90vh] overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-5 sm:p-6 border-b border-white/[0.08] bg-white/[0.02]">
           <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-2xl bg-white/10 text-white">
+            <div className="p-2 rounded-lg bg-white/10 text-white">
               <BookOpen className="h-5 w-5" />
             </div>
             <div>
@@ -87,11 +87,11 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
 
         {/* Tab Selector Capsule */}
         <div className="p-4 sm:px-6 border-b border-white/[0.08] bg-white/[0.01] flex items-center justify-between flex-wrap gap-2">
-          <div className="flex items-center space-x-1 p-1 rounded-full bg-white/[0.06] border border-white/[0.1]">
+          <div className="flex items-center space-x-1 p-1 rounded-lg bg-neutral-900 border border-white/[0.1]">
             <button
               type="button"
               onClick={() => setActiveTab('modelos')}
-              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-full text-[12.5px] transition ${
+              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-md text-[12px] transition ${
                 activeTab === 'modelos'
                   ? 'bg-white text-black font-semibold shadow-md'
                   : 'text-white/70 hover:text-white'
@@ -104,7 +104,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
             <button
               type="button"
               onClick={() => setActiveTab('adulto-pucrs')}
-              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-full text-[12.5px] transition ${
+              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-md text-[12px] transition ${
                 activeTab === 'adulto-pucrs'
                   ? 'bg-white text-black font-semibold shadow-md'
                   : 'text-white/70 hover:text-white'
@@ -117,7 +117,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
             <button
               type="button"
               onClick={() => setActiveTab('pedagogico-mccp')}
-              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-full text-[12.5px] transition ${
+              className={`flex items-center space-x-1.5 px-4 py-1.5 rounded-md text-[12px] transition ${
                 activeTab === 'pedagogico-mccp'
                   ? 'bg-white text-black font-semibold shadow-md'
                   : 'text-white/70 hover:text-white'
@@ -141,7 +141,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
           {/* TAB 1: MODELOS PRONTOS PARA CARREGAMENTO */}
           {activeTab === 'modelos' && (
             <div className="space-y-4">
-              <div className="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-4 text-[12.5px] text-white/70 flex items-start space-x-3">
+              <div className="rounded-lg bg-white/[0.03] border border-white/[0.08] p-4 text-[12.5px] text-white/70 flex items-start space-x-3">
                 <Info className="h-4 w-4 text-white/80 shrink-0 mt-0.5" />
                 <div>
                   <span className="text-white font-medium">Modelos clínicos parametrizados conforme os roteiros:</span>
@@ -155,7 +155,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
                 {MODELOS_DE_ANAMNESE.map((mod) => (
                   <div
                     key={mod.id}
-                    className="p-5 rounded-3xl border border-white/[0.12] bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/30 transition flex flex-col justify-between space-y-4 group shadow-lg"
+                    className="p-5 rounded-xl border border-white/[0.12] bg-white/[0.04] hover:bg-white/[0.08] hover:border-white/30 transition flex flex-col justify-between space-y-4 group shadow-lg"
                   >
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-[11px]">
@@ -196,7 +196,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
                         onApplyModel(mod);
                         onClose();
                       }}
-                      className="w-full flex items-center justify-center space-x-2 rounded-full bg-white text-black hover:bg-neutral-200 py-2.5 text-[12.5px] font-medium transition active:scale-95 shadow-md"
+                      className="w-full flex items-center justify-center space-x-2 rounded-lg bg-neutral-100 text-neutral-950 hover:bg-neutral-200 py-2.5 text-[12.5px] font-medium transition active:scale-95 shadow-md"
                     >
                       <span>Carregar este Modelo no Formulário</span>
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -211,7 +211,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
           {(activeTab === 'adulto-pucrs' || activeTab === 'pedagogico-mccp') && (
             <div className="space-y-6">
               {/* Roteiro Header Info */}
-              <div className="p-5 sm:p-6 rounded-3xl bg-white/[0.04] border border-white/[0.12] space-y-3">
+              <div className="p-5 sm:p-6 rounded-xl bg-white/[0.04] border border-white/[0.12] space-y-3">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-white/50 font-mono">
@@ -232,7 +232,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
                       onApplyModel(modelToApply);
                       onClose();
                     }}
-                    className="inline-flex items-center space-x-2 rounded-full bg-white text-black hover:bg-neutral-200 px-4 py-2 text-[12.5px] font-medium transition active:scale-95 shadow-md self-start sm:self-auto"
+                    className="inline-flex items-center space-x-2 rounded-lg bg-neutral-100 text-neutral-950 hover:bg-neutral-200 px-4 py-2 text-[12.5px] font-medium transition active:scale-95 shadow-md self-start sm:self-auto"
                   >
                     <span>Carregar Modelo {activeTab === 'adulto-pucrs' ? 'PUCRS' : 'MCCP'}</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -269,7 +269,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
                   {currentRoteiro.secoes.map((sec, idx) => (
                     <div
                       key={idx}
-                      className="p-5 rounded-3xl border border-white/[0.1] bg-white/[0.02] hover:bg-white/[0.04] transition space-y-3"
+                      className="p-5 rounded-xl border border-white/[0.1] bg-white/[0.02] hover:bg-white/[0.04] transition space-y-3"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-white/[0.06]">
                         <div>
@@ -308,7 +308,7 @@ export const RoteirosModal: React.FC<RoteirosModalProps> = ({
                       </div>
 
                       {sec.dicasPraticas.length > 0 && (
-                        <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-[11.5px] text-white/50 space-y-1">
+                        <div className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.06] text-[11.5px] text-white/50 space-y-1">
                           <span className="font-medium text-white/70 block">
                             💡 Observação Semiológica Prática:
                           </span>

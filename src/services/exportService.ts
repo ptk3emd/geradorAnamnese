@@ -67,7 +67,7 @@ export function generatePdfDocument(data: ClinicalData, format: OutputFormat): v
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.5);
   doc.setTextColor(60, 60, 60);
-  const subinfo = `Paciente: ${data.identificacao.nomeIniciais || 'Não identificado'} | Idade: ${data.identificacao.idade || 'N/I'} ${data.identificacao.idadeUnidade} | Sexo: ${data.identificacao.sexo} | Leito: ${data.identificacao.leito || 'N/I'} | Responsável: ${data.identificacao.responsavel || 'Médico Assistente'} (CRM: ${data.identificacao.crm || 'N/I'})`;
+  const subinfo = `Paciente: ${data.identificacao.nomeIniciais || 'Não identificado'} | Idade: ${data.identificacao.idade || 'N/I'} ${data.identificacao.idadeUnidade} | Sexo: ${data.identificacao.sexo} | Leito: ${data.identificacao.leito || 'N/I'} | Usuário: ${data.identificacao.responsavel || 'Não informado'}`;
   doc.text(subinfo, margin, currentY);
   currentY += 5;
 
@@ -162,12 +162,12 @@ export function generatePdfDocument(data: ClinicalData, format: OutputFormat): v
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8.5);
   doc.setTextColor(29, 29, 31);
-  doc.text(data.identificacao.responsavel || 'Médico Assistente', signX + signLineWidth / 2, signY + 4, { align: 'center' });
+  doc.text(data.identificacao.responsavel || 'Assinatura do Usuário', signX + signLineWidth / 2, signY + 4, { align: 'center' });
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(7.5);
   doc.setTextColor(120, 120, 120);
-  doc.text(`CRM: ${data.identificacao.crm || '_________ / UF'}`, signX + signLineWidth / 2, signY + 7.5, { align: 'center' });
+  doc.text('Assinatura do Usuário', signX + signLineWidth / 2, signY + 7.5, { align: 'center' });
 
   // Add page numbers
   const totalPages = doc.getNumberOfPages();
@@ -177,7 +177,7 @@ export function generatePdfDocument(data: ClinicalData, format: OutputFormat): v
     doc.setFontSize(7.5);
     doc.setTextColor(160, 160, 160);
     doc.text(
-      `Página ${p} de ${totalPages} - Documento gerado pelo MedEvol`,
+      `Página ${p} de ${totalPages} - Gerador de Anamnese & Evolução`,
       pageWidth / 2,
       pageHeight - 8,
       { align: 'center' }

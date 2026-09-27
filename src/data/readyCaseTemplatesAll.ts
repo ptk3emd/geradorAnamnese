@@ -7,6 +7,7 @@ export type { ReadyCaseTemplate } from './readyCaseTemplatesPart1';
 import { ReadyCaseTemplate, TOP_20_READY_CASES_PART1 } from './readyCaseTemplatesPart1';
 import { TOP_20_READY_CASES_PART2 } from './readyCaseTemplatesPart2';
 import { ADDITIONAL_READY_CASES } from './readyCaseTemplatesMore';
+import { INPATIENT_HOSPITAL_CASES } from './readyCaseTemplatesInpatient';
 
 // The remaining 10 templates (bringing total to 20 clinically robust templates)
 export const TOP_20_READY_CASES_PART3: ReadyCaseTemplate[] = [
@@ -992,6 +993,7 @@ export const TOP_20_READY_CASES_PART3: ReadyCaseTemplate[] = [
 ];
 
 export const ALL_READY_CASES: ReadyCaseTemplate[] = [
+  ...INPATIENT_HOSPITAL_CASES,
   ...TOP_20_READY_CASES_PART1,
   ...TOP_20_READY_CASES_PART2,
   ...TOP_20_READY_CASES_PART3,

@@ -212,18 +212,18 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
   };
 
   return (
-    <div className="space-y-5 max-w-4xl mx-auto">
+    <div className="space-y-4 max-w-4xl mx-auto">
       {/* 0. Roteiros de Anamnese Quick Access Banner */}
-      <div className="no-print flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-3xl bg-white/[0.04] border border-white/[0.12] backdrop-blur-2xl p-4 sm:px-6 shadow-xl">
+      <div className="no-print flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl bg-neutral-900/60 border border-neutral-800 p-3.5 sm:px-5">
         <div className="flex items-center space-x-3">
-          <div className="p-2 rounded-2xl bg-white/10 text-white shrink-0">
+          <div className="p-2 rounded-lg bg-neutral-800 text-neutral-200 shrink-0">
             <BookOpen className="h-4 w-4" />
           </div>
           <div>
             <span className="text-[13px] font-medium text-white block">
               Roteiros & Modelos de Anamnese Integrados
             </span>
-            <span className="text-[11.5px] text-white/50 block">
+            <span className="text-[11.5px] text-neutral-400 block">
               Roteiro do Adulto (PUCRS) e Roteiro Pedagógico (MCCP / Modelo FIFE)
             </span>
           </div>
@@ -232,31 +232,31 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
         <button
           type="button"
           onClick={() => setRoteirosModalOpen(true)}
-          className="inline-flex items-center space-x-1.5 rounded-full bg-white text-black hover:bg-neutral-200 px-4 py-1.5 text-[12px] font-medium transition active:scale-95 shadow-md self-start sm:self-auto"
+          className="inline-flex items-center space-x-1.5 rounded-lg bg-neutral-100 text-neutral-950 hover:bg-neutral-200 px-3.5 py-1.5 text-[12px] font-medium transition active:scale-95 shadow-sm self-start sm:self-auto"
         >
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>Explorar Roteiros & Modelos</span>
+          <Sparkles className="h-3.5 w-3.5 text-neutral-800" />
+          <span>Explorar Roteiros</span>
         </button>
       </div>
 
-      {/* 1. Frosted Glass Processing / Progress Bar Capsule */}
-      <div className="no-print rounded-3xl bg-white/[0.04] border border-white/[0.12] backdrop-blur-2xl p-5 sm:p-6 shadow-2xl">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3">
-          <div className="flex items-center space-x-2.5">
-            <span className="rounded-full bg-white/20 border border-white/20 px-3 py-0.5 text-[11px] font-medium text-white">
+      {/* 1. Progress Bar & Responsive Step Navigation */}
+      <div className="no-print rounded-xl bg-neutral-900/90 border border-neutral-800 p-4 sm:p-5 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
+          <div className="flex items-center space-x-2">
+            <span className="rounded-md bg-neutral-800 border border-neutral-700 px-2 py-0.5 text-[11px] font-medium text-neutral-300">
               Etapa {currentStep} de {totalSteps}
             </span>
-            <span className="text-[15px] font-medium text-white tracking-tight">
+            <span className="text-[14px] sm:text-[15px] font-medium text-white tracking-tight">
               {STEP_DEFINITIONS[currentStep - 1].title}
             </span>
-            <span className="text-[12px] text-white/50 hidden md:inline">
+            <span className="text-[12px] text-neutral-400 hidden lg:inline">
               — {STEP_DEFINITIONS[currentStep - 1].desc}
             </span>
           </div>
 
-          <div className="flex items-center space-x-3 text-[12px] text-white/70">
+          <div className="flex items-center space-x-3 text-[12px] text-neutral-400">
             {autosaveStatus && (
-              <div className="hidden sm:flex items-center space-x-1.5 text-[11px] text-white/50 bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.08]">
+              <div className="flex items-center space-x-1.5 text-[11px] text-neutral-400 bg-neutral-800/80 px-2.5 py-0.5 rounded-md border border-neutral-700">
                 {autosaveStatus.isSaving ? (
                   <>
                     <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
@@ -265,12 +265,12 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 ) : autosaveStatus.lastSaved ? (
                   <>
                     <CheckCircle2 className="h-3 w-3 text-emerald-400" />
-                    <span>Salvo automaticamente</span>
+                    <span>Salvo</span>
                   </>
                 ) : (
                   <>
-                    <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
-                    <span>Autosave ativo</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-neutral-500" />
+                    <span>Autosave</span>
                   </>
                 )}
               </div>
@@ -282,16 +282,61 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
           </div>
         </div>
 
-        {/* Linear Processing Bar with Rounded Corners */}
-        <div className="w-full bg-white/[0.08] h-2 rounded-full overflow-hidden p-0.5 border border-white/[0.06]">
+        {/* Linear Processing Bar */}
+        <div className="w-full bg-neutral-800 h-1.5 rounded-full overflow-hidden">
           <div
-            className="bg-gradient-to-r from-white/80 to-white h-full rounded-full transition-all duration-300 ease-out shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+            className="bg-white h-full rounded-full transition-all duration-200 ease-out"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
 
-        {/* Step Quick Navigation Pills */}
-        <div className="flex items-center justify-between overflow-x-auto pt-3.5 gap-1.5 text-[11px]">
+        {/* Mobile Step Navigation (< md): Dropdown Selector + Next/Prev Arrow buttons */}
+        <div className="md:hidden flex items-center justify-between gap-2 pt-2.5">
+          <button
+            type="button"
+            disabled={currentStep === 1}
+            onClick={() => {
+              setCurrentStep((prev) => Math.max(prev - 1, 1));
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="p-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-white disabled:opacity-30 disabled:pointer-events-none transition"
+            title="Etapa anterior"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+
+          <select
+            value={currentStep}
+            onChange={(e) => {
+              setCurrentStep(Number(e.target.value));
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            aria-label="Selecionar etapa do formulário"
+            className="flex-1 py-1.5 px-3 rounded-lg bg-neutral-950 border border-neutral-700 text-[12px] font-medium text-white focus:outline-none focus:border-neutral-500"
+          >
+            {STEP_DEFINITIONS.map((s) => (
+              <option key={s.id} value={s.id} className="bg-neutral-900 text-white">
+                {s.id}. {s.title}
+              </option>
+            ))}
+          </select>
+
+          <button
+            type="button"
+            disabled={currentStep === totalSteps}
+            onClick={() => {
+              setCurrentStep((prev) => Math.min(prev + 1, totalSteps));
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="p-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-white disabled:opacity-30 disabled:pointer-events-none transition"
+            title="Próxima etapa"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* Desktop Step Quick Navigation (md:) */}
+        <div className="hidden md:flex items-center justify-between overflow-x-auto pt-3 gap-1 text-[11px]">
           {STEP_DEFINITIONS.map((s) => (
             <button
               key={s.id}
@@ -301,22 +346,22 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               title={`${s.id}. ${s.title}`}
-              className={`flex-1 py-1.5 px-2 rounded-full text-center transition-all duration-150 ${
+              className={`flex-1 py-1 px-1.5 rounded-md text-center transition ${
                 currentStep === s.id
-                  ? 'bg-white text-black font-semibold shadow-md'
+                  ? 'bg-neutral-100 text-neutral-950 font-semibold shadow-sm'
                   : currentStep > s.id
-                  ? 'bg-white/[0.08] text-white hover:bg-white/20'
-                  : 'bg-transparent text-white/40 hover:text-white hover:bg-white/[0.04]'
+                  ? 'bg-neutral-800/80 text-neutral-300 hover:bg-neutral-800 hover:text-white'
+                  : 'bg-transparent text-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/40'
               }`}
             >
-              <span>{s.title.split(' ')[0]}</span>
+              <span className="block truncate">{s.id}. {s.title.split(' ')[0]}</span>
             </button>
           ))}
         </div>
       </div>
 
-      {/* 2. Step Questionnaire Body - Rounded Frosted Glass Card */}
-      <div className="rounded-3xl bg-white/[0.04] border border-white/[0.12] backdrop-blur-2xl p-6 sm:p-9 shadow-2xl">
+      {/* 2. Step Questionnaire Body - Crisp 12px Radius Panel */}
+      <div className="rounded-xl bg-neutral-950 border border-neutral-800 p-4 sm:p-7 shadow-lg">
         {/* ================= STEP 1: IDENTIFICAÇÃO ================= */}
         {currentStep === 1 && (
           <div className="space-y-6 animate-in fade-in duration-150">
@@ -339,7 +384,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 <button
                   type="button"
                   onClick={() => updateField('tipo', 'anamnese')}
-                  className={`p-4 rounded-2xl border text-left transition-all ${
+                  className={`p-4 rounded-lg border text-left transition-all ${
                     data.tipo === 'anamnese'
                       ? 'bg-white text-black border-white shadow-lg'
                       : 'bg-white/[0.04] border-white/[0.12] text-white/80 hover:bg-white/[0.08]'
@@ -354,7 +399,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 <button
                   type="button"
                   onClick={() => updateField('tipo', 'evolucao')}
-                  className={`p-4 rounded-2xl border text-left transition-all ${
+                  className={`p-4 rounded-lg border text-left transition-all ${
                     data.tipo === 'evolucao'
                       ? 'bg-white text-black border-white shadow-lg'
                       : 'bg-white/[0.04] border-white/[0.12] text-white/80 hover:bg-white/[0.08]'
@@ -379,7 +424,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.identificacao.nomeIniciais}
                   onChange={(e) => updateNested('identificacao', 'nomeIniciais', e.target.value)}
                   placeholder="Ex: M.A.S. ou Nome do Paciente"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -391,7 +436,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.identificacao.idade}
                     onChange={(e) => updateNested('identificacao', 'idade', e.target.value)}
                     placeholder="Ex: 58"
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
                 <div>
@@ -399,7 +444,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   <select
                     value={data.identificacao.idadeUnidade}
                     onChange={(e) => updateNested('identificacao', 'idadeUnidade', e.target.value as any)}
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white p-3 text-[13px] outline-none transition cursor-pointer"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white p-3 text-[13px] outline-none transition cursor-pointer"
                   >
                     <option value="anos" className="bg-[#121316] text-white">Anos</option>
                     <option value="meses" className="bg-[#121316] text-white">Meses</option>
@@ -413,7 +458,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 <select
                   value={data.identificacao.sexo}
                   onChange={(e) => updateNested('identificacao', 'sexo', e.target.value as any)}
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white p-3 text-[13px] outline-none transition cursor-pointer"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white p-3 text-[13px] outline-none transition cursor-pointer"
                 >
                   <option value="M" className="bg-[#121316] text-white">Masculino (M)</option>
                   <option value="F" className="bg-[#121316] text-white">Feminino (F)</option>
@@ -428,7 +473,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.identificacao.leito}
                   onChange={(e) => updateNested('identificacao', 'leito', e.target.value)}
                   placeholder="Ex: Leito 12 / Enfermaria Cirúrgica"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -439,7 +484,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.identificacao.data}
                   onChange={(e) => updateNested('identificacao', 'data', e.target.value)}
                   placeholder="Ex: 27/09/2026"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -450,29 +495,18 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.identificacao.hora}
                   onChange={(e) => updateNested('identificacao', 'hora', e.target.value)}
                   placeholder="Ex: 08:30"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
-              <div>
-                <label className="block text-[12px] text-white/70 mb-1.5">Médico Responsável</label>
+              <div className="sm:col-span-2">
+                <label className="block text-[12px] text-white/70 mb-1.5">Nome do Usuário / Responsável</label>
                 <input
                   type="text"
                   value={data.identificacao.responsavel}
                   onChange={(e) => updateNested('identificacao', 'responsavel', e.target.value)}
-                  placeholder="Ex: Dr. Médico Assistente"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[12px] text-white/70 mb-1.5">CRM / Registro Profissional</label>
-                <input
-                  type="text"
-                  value={data.identificacao.crm}
-                  onChange={(e) => updateNested('identificacao', 'crm', e.target.value)}
-                  placeholder="Ex: 123456-SP"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  placeholder="Seu nome completo para assinatura"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -483,7 +517,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.identificacao.acompanhante}
                   onChange={(e) => updateNested('identificacao', 'acompanhante', e.target.value)}
                   placeholder="Ex: Próprio paciente (confiabilidade boa)"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -494,7 +528,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.identificacao.ocupacao}
                   onChange={(e) => updateNested('identificacao', 'ocupacao', e.target.value)}
                   placeholder="Ex: Eletricista / Aposentado"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -505,7 +539,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.identificacao.naturalidade}
                   onChange={(e) => updateNested('identificacao', 'naturalidade', e.target.value)}
                   placeholder="Ex: Natural de Porto Alegre, reside em Canoas há 10 anos"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -514,7 +548,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 <select
                   value={data.identificacao.confiabilidade}
                   onChange={(e) => updateNested('identificacao', 'confiabilidade', e.target.value as any)}
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white p-3 text-[13px] outline-none transition cursor-pointer"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white p-3 text-[13px] outline-none transition cursor-pointer"
                 >
                   <option value="boa" className="bg-[#121316] text-white">Boa (Lúcido, coerente e colaborativo)</option>
                   <option value="moderada" className="bg-[#121316] text-white">Moderada (Algumas dúvidas ou contradições)</option>
@@ -529,7 +563,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
               <button
                 type="button"
                 onClick={() => setShowDetailedId(!showDetailedId)}
-                className="inline-flex items-center space-x-2 text-[12px] text-white/70 hover:text-white py-1 px-3 rounded-full bg-white/[0.05] border border-white/[0.1] transition"
+                className="inline-flex items-center space-x-2 text-[12px] text-white/70 hover:text-white py-1 px-3 rounded-lg bg-neutral-900 border border-neutral-800 border border-white/[0.1] transition"
               >
                 {showDetailedId ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                 <span>
@@ -548,7 +582,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.identificacao.corEtnia || ''}
                       onChange={(e) => updateNested('identificacao', 'corEtnia', e.target.value)}
                       placeholder="Ex: Branca, Parda, Preta, Amarela, Indígena"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
                     />
                   </div>
 
@@ -559,7 +593,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.identificacao.estadoCivil || ''}
                       onChange={(e) => updateNested('identificacao', 'estadoCivil', e.target.value)}
                       placeholder="Ex: Solteiro, Casado, União Estável, Viúvo"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
                     />
                   </div>
 
@@ -570,7 +604,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.identificacao.religiao || ''}
                       onChange={(e) => updateNested('identificacao', 'religiao', e.target.value)}
                       placeholder="Ex: Católica, Evangélica, Espírita (relevante para transfusões)"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
                     />
                   </div>
 
@@ -581,7 +615,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.identificacao.escolaridade || ''}
                       onChange={(e) => updateNested('identificacao', 'escolaridade', e.target.value)}
                       placeholder="Ex: Ensino Médio Completo / Superior"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
                     />
                   </div>
 
@@ -592,7 +626,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.identificacao.filiacao || ''}
                       onChange={(e) => updateNested('identificacao', 'filiacao', e.target.value)}
                       placeholder="Ex: Nome completo da mãe ou responsável"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
                     />
                   </div>
 
@@ -603,7 +637,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.identificacao.convenioSus || ''}
                       onChange={(e) => updateNested('identificacao', 'convenioSus', e.target.value)}
                       placeholder="Ex: SUS / Clínica Médica Adulto"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 text-white placeholder:text-white/30 p-3 text-[13px] outline-none"
                     />
                   </div>
                 </div>
@@ -636,7 +670,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.queixaPrincipal}
                     onChange={(e) => updateField('queixaPrincipal', e.target.value)}
                     placeholder="Ex: Dor precordial em aperto e falta de ar há 3 horas"
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3.5 text-[13.5px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3.5 text-[13.5px] outline-none transition"
                   />
                   <span className="text-[11.5px] text-white/40 mt-1.5 block">
                     * Sintoma guia acompanhado do tempo exato de evolução clínica.
@@ -655,7 +689,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.resumoProblemas.tempoInternacao}
                       onChange={(e) => updateNested('resumoProblemas', 'tempoInternacao', e.target.value)}
                       placeholder="Ex: D3 IH"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                     />
                   </div>
 
@@ -668,7 +702,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       value={data.resumoProblemas.motivoInternacao}
                       onChange={(e) => updateNested('resumoProblemas', 'motivoInternacao', e.target.value)}
                       placeholder="Ex: ICC descompensada perfil B"
-                      className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                      className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                     />
                   </div>
                 </div>
@@ -682,7 +716,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.resumoProblemas.intercorrencias}
                     onChange={(e) => updateNested('resumoProblemas', 'intercorrencias', e.target.value)}
                     placeholder="Ex: Sem intercorrências agudas nas últimas 24 horas."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -695,7 +729,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.resumoProblemas.acessosDispositivos}
                     onChange={(e) => updateNested('resumoProblemas', 'acessosDispositivos', e.target.value)}
                     placeholder="Ex: AVP em MSE, em ar ambiente, sem SVD."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -725,7 +759,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
             {data.tipo === 'anamnese' ? (
               <div className="space-y-4">
                 {/* Assistente Semiológico dos Roteiros */}
-                <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex flex-wrap items-center justify-between gap-2 text-[12px]">
+                <div className="p-3.5 rounded-lg bg-white/[0.03] border border-white/[0.08] flex flex-wrap items-center justify-between gap-2 text-[12px]">
                   <div className="flex items-center space-x-2 text-white/70">
                     <Sparkles className="h-3.5 w-3.5 text-white/90" />
                     <span>Assistente Semiológico:</span>
@@ -743,7 +777,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                         );
                         updateField('hda', data.hda.trim() ? `${data.hda}\n\n${template}` : template);
                       }}
-                      className="inline-flex items-center space-x-1.5 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 px-3 py-1 text-white/90 transition text-[11.5px]"
+                      className="inline-flex items-center space-x-1.5 rounded-lg bg-neutral-900 border border-neutral-800 hover:bg-white/20 border border-white/15 px-3 py-1 text-white/90 transition text-[11.5px]"
                       title="Inserir estrutura semiológica dos 8 atributos do sintoma-guia"
                     >
                       <span>⚡ Roteiro 8 Atributos (PUCRS)</span>
@@ -755,7 +789,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                         const template = generateFifeHdaTemplate();
                         updateField('hda', data.hda.trim() ? `${data.hda}\n\n${template}` : template);
                       }}
-                      className="inline-flex items-center space-x-1.5 rounded-full bg-white/[0.08] hover:bg-white/20 border border-white/15 px-3 py-1 text-white/90 transition text-[11.5px]"
+                      className="inline-flex items-center space-x-1.5 rounded-lg bg-neutral-900 border border-neutral-800 hover:bg-white/20 border border-white/15 px-3 py-1 text-white/90 transition text-[11.5px]"
                       title="Inserir estrutura das 4 dimensões do Modelo FIFE na HDA"
                     >
                       <span>⚡ Modelo FIFE (MCCP)</span>
@@ -777,7 +811,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.hda}
                     onChange={(e) => updateField('hda', e.target.value)}
                     placeholder="Descreva o início dos sintomas (súbito ou insidioso), evolução temporal, características semiológicas completas (localização, irradiação, intensidade, qualidade da dor), fatores de melhora e piora, sintomas associados e impacto funcional..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-4 text-[13.5px] outline-none transition leading-relaxed"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-4 text-[13.5px] outline-none transition leading-relaxed"
                   />
                 </div>
 
@@ -800,7 +834,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   </div>
 
                   {showFifeSection && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 p-4 rounded-3xl bg-white/[0.02] border border-white/[0.08]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 p-4 rounded-xl bg-white/[0.02] border border-white/[0.08]">
                       <div>
                         <label className="block text-[11.5px] text-white/80 mb-1">
                           <strong>F - Sentimentos (Feelings)</strong>: Temores e medos do paciente
@@ -867,7 +901,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.pacienteRelata}
                     onChange={(e) => updateField('pacienteRelata', e.target.value)}
                     placeholder="Ex: Refere melhora progressiva da falta de ar, dormiu bem à noite com 1 travesseiro, boa aceitação da dieta..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -880,7 +914,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.sintomasAtuais}
                     onChange={(e) => updateField('sintomasAtuais', e.target.value)}
                     placeholder="Ex: Discreta tosse seca eventual; diurese abundante e satisfatória."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -893,7 +927,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.negativasRelevantes}
                     onChange={(e) => updateField('negativasRelevantes', e.target.value)}
                     placeholder="Ex: Nega dor torácica, febre, palpitações ou ortopneia nas últimas 24h."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -901,7 +935,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
 
             {/* Differential Logic bridge banner */}
             {(data.queixaPrincipal?.trim() || data.hda?.trim()) && (
-              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.08] text-[12px] text-white/70">
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3.5 rounded-lg bg-white/[0.03] border border-white/[0.08] text-[12px] text-white/70">
                 <div className="flex items-center space-x-2">
                   <Stethoscope className="h-4 w-4 text-white/70 shrink-0" />
                   <span>
@@ -914,7 +948,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     setCurrentStep(6);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="inline-flex items-center space-x-1 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-[11px] transition active:scale-95 shrink-0 self-start sm:self-auto"
+                  className="inline-flex items-center space-x-1 px-3 py-1 rounded-lg bg-neutral-900 border border-neutral-800 hover:bg-white/20 text-white font-medium text-[11px] transition active:scale-95 shrink-0 self-start sm:self-auto"
                 >
                   <span>Ver Manobras no Exame Físico (Etapa 6)</span>
                   <ChevronRight className="h-3 w-3" />
@@ -947,7 +981,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.hpp}
                   onChange={(e) => updateField('hpp', e.target.value)}
                   placeholder="Ex: Hipertensão Arterial Sistêmica há 15 anos, Diabetes Mellitus Tipo 2, dislipidemia. Cirurgias prévias: apendicectomia há 20 anos. Nega transfusões de sangue..."
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -961,7 +995,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.resumoProblemas.tratamentosFimDefinido}
                     onChange={(e) => updateNested('resumoProblemas', 'tratamentosFimDefinido', e.target.value)}
                     placeholder="Ex: Losartana 50mg 1x/dia, Metformina 850mg 2x/dia, AAS 100mg após almoço..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -974,7 +1008,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.resumoProblemas.comorbidadesAlergias}
                     onChange={(e) => updateNested('resumoProblemas', 'comorbidadesAlergias', e.target.value)}
                     placeholder="Ex: Nega alergias conhecidas ou Alergia a Penicilina (urticária e angioedema)"
-                    className="w-full rounded-2xl bg-white/[0.08] border border-white/30 focus:border-white/60 text-white placeholder:text-white/40 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.08] border border-white/30 focus:border-white/60 text-white placeholder:text-white/40 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -993,7 +1027,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                       updateField('historiaFisiologica', e.target.value);
                     }}
                     placeholder="Ex: Parto a termo, vacinação do adulto em dia (COVID/Tétano/Gripe)..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -1006,7 +1040,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.historiaFamiliar}
                     onChange={(e) => updateField('historiaFamiliar', e.target.value)}
                     placeholder="Ex: Pai infartado aos 52 anos (DAC precoce), mãe hipertensa..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -1027,7 +1061,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   )}
                 </div>
 
-                <div className="p-4 rounded-3xl bg-white/[0.02] border border-white/[0.08] space-y-3.5">
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.08] space-y-3.5">
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                     <div>
                       <label className="block text-[11.5px] text-white/70 mb-1">Status Tabágico</label>
@@ -1199,7 +1233,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.pa}
                   onChange={(e) => updateNested('sinaisVitais', 'pa', e.target.value)}
                   placeholder="Ex: 120x80"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1210,7 +1244,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.fc}
                   onChange={(e) => updateNested('sinaisVitais', 'fc', e.target.value)}
                   placeholder="Ex: 75"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1221,7 +1255,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.fr}
                   onChange={(e) => updateNested('sinaisVitais', 'fr', e.target.value)}
                   placeholder="Ex: 16"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1232,7 +1266,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.tax}
                   onChange={(e) => updateNested('sinaisVitais', 'tax', e.target.value)}
                   placeholder="Ex: 36.5"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1243,7 +1277,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.satO2}
                   onChange={(e) => updateNested('sinaisVitais', 'satO2', e.target.value)}
                   placeholder="Ex: 98"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1254,7 +1288,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.o2Suporte}
                   onChange={(e) => updateNested('sinaisVitais', 'o2Suporte', e.target.value)}
                   placeholder="Ex: AA ou Cateter 2 L/min"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1265,7 +1299,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.glicemia}
                   onChange={(e) => updateNested('sinaisVitais', 'glicemia', e.target.value)}
                   placeholder="Ex: 110 mg/dL"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1276,7 +1310,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.dorEscala}
                   onChange={(e) => updateNested('sinaisVitais', 'dorEscala', e.target.value)}
                   placeholder="Ex: 0/10 ou 7/10"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
             </div>
@@ -1289,7 +1323,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.diurese}
                   onChange={(e) => updateNested('sinaisVitais', 'diurese', e.target.value)}
                   placeholder="Ex: clara, espontânea, 1500 ml/24h"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1300,7 +1334,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.evacuacoes}
                   onChange={(e) => updateNested('sinaisVitais', 'evacuacoes', e.target.value)}
                   placeholder="Ex: presentes, normais"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1311,7 +1345,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.sinaisVitais.balanco}
                   onChange={(e) => updateNested('sinaisVitais', 'balanco', e.target.value)}
                   placeholder="Ex: zerado ou -500 ml/24h"
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
             </div>
@@ -1350,7 +1384,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.exameFisico.estadoGeral}
                   onChange={(e) => updateNested('exameFisico', 'estadoGeral', e.target.value)}
                   placeholder="Ex: Bom estado geral, lúcido e orientado, corado, hidratado, anictérico, acianótico, afebril..."
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1363,7 +1397,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.exameFisico.cabecaPescoco || ''}
                   onChange={(e) => updateNested('exameFisico', 'cabecaPescoco', e.target.value)}
                   placeholder="Ex: Pupilas isocóricas e fotorreagentes, mucosas úmidas e coradas, sem turgência jugular patológica a 45°, tireoide impalpável..."
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1377,7 +1411,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.exameFisico.aResp}
                     onChange={(e) => updateNested('exameFisico', 'aResp', e.target.value)}
                     placeholder="Ex: Murmúrio vesicular universalmente audível sem ruídos adventícios, eupneico em ar ambiente..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -1390,7 +1424,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.exameFisico.acv}
                     onChange={(e) => updateNested('exameFisico', 'acv', e.target.value)}
                     placeholder="Ex: Ritmo cardíaco regular em 2 tempos, bulhas normofonéticas, sem sopros audíveis..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -1405,7 +1439,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.exameFisico.abdome}
                     onChange={(e) => updateNested('exameFisico', 'abdome', e.target.value)}
                     placeholder="Ex: Plano, flácido, ruídos presentes, indolor à palpação superficial e profunda, descompressão brusca negativa..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -1418,7 +1452,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.exameFisico.extremidades}
                     onChange={(e) => updateNested('exameFisico', 'extremidades', e.target.value)}
                     placeholder="Ex: Pulsos periféricos palpáveis e simétricos, boa perfusão periférica (TEC < 2s), sem edemas em MMII..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -1432,7 +1466,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.exameFisico.neurologicoPele}
                   onChange={(e) => updateNested('exameFisico', 'neurologicoPele', e.target.value)}
                   placeholder="Ex: Glasgow 15, orientado temporo-espacialmente, sem déficits motores ou sensitivos focais..."
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
             </div>
@@ -1453,7 +1487,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
             </div>
 
             {/* Raciocínio Clínico em Três Níveis (Roteiro Pedagógico) */}
-            <div className="p-4 sm:p-5 rounded-3xl bg-white/[0.03] border border-white/[0.1] space-y-3">
+            <div className="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/[0.1] space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <BookOpen className="h-4 w-4 text-white/80" />
@@ -1520,7 +1554,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.hipotesePrincipal.codigoCid}
                     onChange={(e) => updateNested('hipotesePrincipal', 'codigoCid', e.target.value)}
                     placeholder="Ex: I21.0 ou I50.9"
-                    className="w-full rounded-2xl bg-white/[0.08] border border-white/30 focus:border-white/60 text-white font-medium placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.08] border border-white/30 focus:border-white/60 text-white font-medium placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -1533,7 +1567,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.hipotesePrincipal.nomeCid}
                     onChange={(e) => updateNested('hipotesePrincipal', 'nomeCid', e.target.value)}
                     placeholder="Ex: Infarto Agudo do Miocárdio com Supradesnivelamento de ST"
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -1547,7 +1581,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.hipotesePrincipal.justificativa}
                   onChange={(e) => updateNested('hipotesePrincipal', 'justificativa', e.target.value)}
                   placeholder="Ex: Quadro clínico compatível baseado na dor torácica opressiva típica há 3 horas, irradiação para MSE, diaforese fria e fatores de risco..."
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
 
@@ -1560,7 +1594,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   <button
                     type="button"
                     onClick={handleAddDifferential}
-                    className="inline-flex items-center space-x-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 px-3 py-1 text-[11.5px] text-white transition"
+                    className="inline-flex items-center space-x-1.5 rounded-lg bg-neutral-900 border border-neutral-800 hover:bg-white/20 border border-white/15 px-3 py-1 text-[11.5px] text-white transition"
                   >
                     <Plus className="h-3 w-3" />
                     <span>Adicionar Diferencial</span>
@@ -1574,7 +1608,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 ) : (
                   <div className="space-y-3">
                     {data.diferenciais.map((diff, index) => (
-                      <div key={index} className="p-3.5 rounded-2xl border border-white/[0.1] bg-white/[0.02] space-y-2">
+                      <div key={index} className="p-3.5 rounded-lg border border-white/[0.1] bg-white/[0.02] space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="text-[11px] text-white/60 font-medium">
                             Diferencial #{index + 1}
@@ -1653,7 +1687,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 <button
                   type="button"
                   onClick={handleAddExam}
-                  className="inline-flex items-center space-x-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 px-3 py-1 text-[11.5px] text-white transition"
+                  className="inline-flex items-center space-x-1.5 rounded-lg bg-neutral-900 border border-neutral-800 hover:bg-white/20 border border-white/15 px-3 py-1 text-[11.5px] text-white transition"
                 >
                   <Plus className="h-3 w-3" />
                   <span>Adicionar Exame</span>
@@ -1661,13 +1695,13 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
               </div>
 
               {data.examesComplementares.length === 0 ? (
-                <div className="p-8 rounded-2xl border border-white/[0.08] text-center text-[12.5px] text-white/40">
+                <div className="p-8 rounded-lg border border-white/[0.08] text-center text-[12.5px] text-white/40">
                   Nenhum exame cadastrado. Clique no botão acima para adicionar exames laboratoriais ou de imagem.
                 </div>
               ) : (
                 <div className="space-y-3">
                   {data.examesComplementares.map((item, index) => (
-                    <div key={item.id || index} className="p-4 rounded-2xl border border-white/[0.1] bg-white/[0.02] space-y-2">
+                    <div key={item.id || index} className="p-4 rounded-lg border border-white/[0.1] bg-white/[0.02] space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-[11px] font-medium text-white/60">
                           Exame #{index + 1}
@@ -1731,7 +1765,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.condutaDiagnostica}
                   onChange={(e) => updateField('condutaDiagnostica', e.target.value)}
                   placeholder="Ex: ECG de admissão evidenciando supradesnivelamento de ST em parede anterior (V1-V4); RX de tórax no leito..."
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                 />
               </div>
             </div>
@@ -1761,7 +1795,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                   value={data.condutaTerapeutica}
                   onChange={(e) => updateField('condutaTerapeutica', e.target.value)}
                   placeholder="1. Dieta zero para cineangiocoronariografia urgente&#10;2. Acesso venoso periférico calibroso&#10;3. AAS 300mg VO mastigado&#10;4. Ticagrelor 180mg VO em dose de ataque&#10;5. Enoxaparina 1 mg/kg SC 12/12h&#10;6. Monitorização contínua..."
-                  className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-4 text-[13.5px] outline-none transition leading-relaxed"
+                  className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-4 text-[13.5px] outline-none transition leading-relaxed"
                 />
               </div>
 
@@ -1775,7 +1809,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.cuidadosGerais}
                     onChange={(e) => updateField('cuidadosGerais', e.target.value)}
                     placeholder="Ex: Repouso no leito com cabeceira elevada a 30°; controle rigoroso de PA e balanço hídrico..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -1788,7 +1822,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.planoAltaSeguimento}
                     onChange={(e) => updateField('planoAltaSeguimento', e.target.value)}
                     placeholder="Ex: Previsão de transferência para UTI cardiológica após angioplastia; seguimento ambulatorial..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -1804,7 +1838,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.planoNaoFarmacologico || ''}
                     onChange={(e) => updateField('planoNaoFarmacologico', e.target.value)}
                     placeholder="Ex: Cessação do tabagismo, dieta hipossódica com menos de 2g de sal/dia, higiene do sono..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
 
@@ -1817,7 +1851,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                     value={data.sinaisAlarme || ''}
                     onChange={(e) => updateField('sinaisAlarme', e.target.value)}
                     placeholder="Ex: Retornar imediatamente se dor torácica recorrente, falta de ar intensa em repouso, síncope ou febre alta..."
-                    className="w-full rounded-2xl bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
+                    className="w-full rounded-lg bg-white/[0.05] border border-white/[0.14] focus:border-white/40 focus:bg-white/[0.08] text-white placeholder:text-white/30 p-3 text-[13px] outline-none transition"
                   />
                 </div>
               </div>
@@ -1851,30 +1885,30 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
         )}
       </div>
 
-      {/* 3. Navigation Controls Bar - Rounded Capsule */}
-      <div className="no-print flex items-center justify-between rounded-full bg-white/[0.04] border border-white/[0.12] backdrop-blur-2xl p-3 px-5 shadow-2xl">
+      {/* 3. Navigation Controls Bar - Clean 12px Radius & Mobile-First */}
+      <div className="no-print flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between rounded-xl bg-neutral-900 border border-neutral-800 p-3 sm:px-5 gap-2.5 shadow-sm">
         <div>
           {currentStep > 1 ? (
             <button
               type="button"
               onClick={handlePrev}
-              className="inline-flex items-center space-x-2 rounded-full px-4 py-2 text-[12.5px] font-medium text-white/80 hover:text-white hover:bg-white/[0.08] transition active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-lg px-4 py-2.5 text-[12.5px] font-medium text-neutral-300 hover:text-white hover:bg-neutral-800 transition active:scale-95 border border-neutral-800 sm:border-transparent"
             >
               <ChevronLeft className="h-4 w-4" />
               <span>Etapa Anterior</span>
             </button>
           ) : (
-            <div />
+            <div className="hidden sm:block" />
           )}
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
           {currentStep < totalSteps ? (
             <>
               <button
                 type="button"
                 onClick={() => setCurrentStep(10)}
-                className="hidden sm:inline-flex items-center space-x-1 rounded-full px-4 py-2 text-[12px] text-white/60 hover:text-white hover:bg-white/[0.06] transition"
+                className="hidden md:inline-flex items-center space-x-1 rounded-lg px-3 py-2 text-[12px] text-neutral-400 hover:text-white hover:bg-neutral-800 transition"
               >
                 <span>Pular para Leitura (Etapa 10)</span>
               </button>
@@ -1882,7 +1916,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex items-center space-x-2 rounded-full bg-white text-black hover:bg-neutral-200 px-5 py-2 text-[12.5px] font-medium transition active:scale-95 shadow-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-lg bg-neutral-100 text-neutral-950 hover:bg-white px-5 py-2.5 text-[13px] font-medium transition active:scale-95 shadow-sm"
               >
                 <span>Próxima Etapa</span>
                 <ChevronRight className="h-4 w-4" />
@@ -1895,7 +1929,7 @@ export const StepWizardForm: React.FC<StepWizardFormProps> = ({
                 setCurrentStep(1);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center space-x-2 rounded-full bg-white text-black hover:bg-neutral-200 px-5 py-2 text-[12.5px] font-medium transition active:scale-95 shadow-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-lg bg-neutral-100 text-neutral-950 hover:bg-white px-5 py-2.5 text-[13px] font-medium transition active:scale-95 shadow-sm"
             >
               <span>Voltar ao Início (Etapa 1)</span>
             </button>

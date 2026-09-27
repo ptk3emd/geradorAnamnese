@@ -5,7 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: './',
+    // GitHub Pages publishes project sites below /<repository>/, while local
+    // development runs from /. The deployment workflow supplies BASE_PATH.
+    base: process.env.BASE_PATH || '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

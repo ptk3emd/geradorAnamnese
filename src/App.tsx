@@ -152,13 +152,8 @@ export default function App() {
   const checklistCompletedCount = Object.values(checklist).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-[#08090b] text-white flex flex-col font-['Poppins','Inter',sans-serif] selection:bg-white/20 selection:text-white relative">
-      {/* Soft Ambient Organic Glow / Cloud matching reference photo */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 flex items-start justify-center">
-        <div className="w-[500px] h-[350px] sm:w-[800px] sm:h-[450px] bg-white/[0.045] rounded-full blur-[120px] transform -translate-y-16" />
-      </div>
-
-      {/* 1. Empty / Minimal Topbar with only essential info */}
+    <div className="min-h-screen bg-[#080c14] text-white flex flex-col font-['Poppins','Inter',sans-serif] selection:bg-neutral-800 selection:text-white relative">
+      {/* 1. Minimal Topbar with essentials */}
       <HeaderNav
         onDownloadPdf={handleDownloadPdf}
         onOpenPrintPreview={() => setPrintPreviewOpen(true)}
@@ -166,7 +161,7 @@ export default function App() {
         onImportJson={handleImportJson}
       />
 
-      {/* 2. Frosted Capsule Sub Navigation Bar */}
+      {/* 2. Control Sub Navigation Bar */}
       <SubNav
         documentType={clinicalData.tipo}
         onSelectDocumentType={handleSelectDocumentType}
@@ -178,27 +173,27 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 sm:px-6 py-4 sm:py-6 space-y-6">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-3 sm:px-6 py-3 sm:py-5 space-y-4">
         {/* Autosave Recovery Banner when session restored */}
         {restoredFromAutosave && (
-          <div className="no-print p-4 sm:px-6 rounded-3xl bg-white/[0.05] border border-emerald-500/30 backdrop-blur-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 shadow-2xl animate-in fade-in slide-in-from-top-2">
+          <div className="no-print p-3.5 sm:px-5 rounded-xl bg-neutral-900 border border-emerald-500/35 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md animate-in fade-in slide-in-from-top-1">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-2xl bg-emerald-500/15 text-emerald-400 shrink-0">
+              <div className="p-2 rounded-lg bg-emerald-500/15 text-emerald-400 shrink-0">
                 <CheckCircle2 className="h-4 w-4" />
               </div>
               <div>
-                <h4 className="text-[13.5px] font-medium text-white flex items-center gap-2">
-                  <span>Progresso restaurado automaticamente</span>
-                  <span className="text-[10.5px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold">
-                    Autosave Ativo
+                <h4 className="text-[13px] font-medium text-white flex items-center gap-2">
+                  <span>Progresso restaurado da última sessão</span>
+                  <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">
+                    Autosave
                   </span>
                 </h4>
-                <p className="text-[12px] text-white/60 mt-0.5">
-                  Seus dados foram recuperados da última sessão no navegador
+                <p className="text-[11.5px] text-neutral-400 mt-0.5">
+                  Dados recuperados do navegador
                   {lastSaved
                     ? ` (salvo às ${lastSaved.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })})`
                     : ''}
-                  . Você pode continuar preenchendo normalmente.
+                  .
                 </p>
               </div>
             </div>
@@ -206,14 +201,14 @@ export default function App() {
               <button
                 type="button"
                 onClick={dismissRestoredBanner}
-                className="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-[12px] font-medium transition active:scale-95"
+                className="px-3.5 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-white text-[12px] font-medium transition active:scale-95"
               >
                 Continuar
               </button>
               <button
                 type="button"
                 onClick={handleResetBlank}
-                className="px-4 py-1.5 rounded-full bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/20 text-[12px] font-medium transition active:scale-95"
+                className="px-3.5 py-1.5 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-300 border border-red-500/20 text-[12px] font-medium transition active:scale-95"
               >
                 Descartar rascunho
               </button>
@@ -221,7 +216,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Frosted Glass Diseases Search & Toggle Capsule */}
+        {/* Diseases Search & Toggle Bar */}
         <DiseasesToggleBar
           selectedCaseId={selectedCaseId}
           onSelectCase={(template) => {
@@ -242,19 +237,19 @@ export default function App() {
           />
         ) : (
           <div className="space-y-4">
-            <div className="no-print p-5 rounded-3xl bg-white/[0.04] border border-white/[0.12] backdrop-blur-2xl flex items-center justify-between">
+            <div className="no-print p-4 sm:p-5 rounded-xl bg-neutral-900 border border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
               <div>
-                <h2 className="text-[15px] font-medium tracking-tight text-white">
+                <h2 className="text-[14px] sm:text-[15px] font-medium tracking-tight text-white">
                   Leitura Direta da Anamnese / Evolução no App
                 </h2>
-                <p className="text-[12.5px] text-white/50 mt-0.5">
+                <p className="text-[12px] text-neutral-400 mt-0.5">
                   Visualização contínua e diagramada, sem necessidade de exportar PDF.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setActiveView('form')}
-                className="rounded-full bg-white text-black hover:bg-neutral-200 px-5 py-2 text-[12.5px] font-medium transition active:scale-95 shadow-md"
+                className="rounded-lg bg-neutral-100 text-neutral-950 hover:bg-white px-4 py-2 text-[12px] font-medium transition active:scale-95 shadow-sm self-start sm:self-auto"
               >
                 ← Voltar ao Questionário
               </button>
@@ -306,22 +301,22 @@ export default function App() {
         onDownloadPdf={handleDownloadPdf}
       />
 
-      {/* Toast Notification - Rounded Glass Capsule */}
+      {/* Toast Notification - Clean 8px Radius */}
       {toastMessage && (
-        <div className="no-print fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-full bg-neutral-900/90 border border-white/20 px-5 py-2.5 text-[12.5px] font-normal text-white shadow-2xl flex items-center space-x-2 backdrop-blur-2xl animate-in fade-in slide-in-from-bottom-2">
-          <Check className="h-4 w-4 text-emerald-300" />
+        <div className="no-print fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-2.5 text-[12px] font-normal text-white shadow-xl flex items-center space-x-2 animate-in fade-in slide-in-from-bottom-2">
+          <Check className="h-4 w-4 text-emerald-400" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Minimal Footer */}
-      <footer className="no-print mt-12 border-t border-white/[0.08] py-8 text-center text-[12px] text-white/40">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-1">
-          <p className="font-normal text-white/70 lowercase">
-            gerador de anamnese
+      <footer className="no-print mt-10 border-t border-neutral-800 py-6 text-center text-[12px] text-neutral-500">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-0.5">
+          <p className="font-normal text-neutral-300">
+            Gerador de Anamnese & Evolução Médica
           </p>
-          <p className="text-[11px] text-white/30">
-            sistema de anamnese médica e evolução clínica estruturada
+          <p className="text-[11px] text-neutral-500">
+            Registro Clínico Estruturado · SOAP & Roteiro do Adulto
           </p>
         </div>
       </footer>
