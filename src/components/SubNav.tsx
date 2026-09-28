@@ -36,7 +36,7 @@ export const SubNav: React.FC<SubNavProps> = ({
   onOpenRoteiros,
 }) => {
   return (
-    <div className="no-print w-full py-2.5 px-3 sm:px-6 bg-[#080c14]/60 border-b border-neutral-800/80">
+    <div className="no-print w-full py-2.5 px-3 sm:px-6 bg-[#090909]/80 border-b border-neutral-800/80">
       <div className="mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5 max-w-6xl">
         {/* Left Side: Document Model Switcher & Guides */}
         <div className="flex flex-wrap items-center gap-2">

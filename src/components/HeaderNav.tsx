@@ -37,7 +37,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   };
 
   return (
-    <header className="no-print sticky top-0 z-50 w-full bg-[#0b0f17]/95 backdrop-blur-md border-b border-neutral-800">
+    <header className="no-print sticky top-0 z-50 w-full bg-[#090909]/95 backdrop-blur-md border-b border-neutral-800">
       {/* Hidden file input for importing JSON */}
       <input
         type="file"

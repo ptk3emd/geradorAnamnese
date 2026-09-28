@@ -152,7 +152,7 @@ export default function App() {
   const checklistCompletedCount = Object.values(checklist).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-[#08090b] text-white flex flex-col font-['Poppins','Inter',sans-serif] selection:bg-neutral-800 selection:text-white relative">
+    <div className="min-h-screen bg-[#090909] text-white flex flex-col font-['Poppins','Inter',sans-serif] selection:bg-neutral-800 selection:text-white relative">
       {/* 1. Minimal Topbar with essentials */}
       <HeaderNav
         onDownloadPdf={handleDownloadPdf}
