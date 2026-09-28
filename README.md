@@ -1,20 +1,20 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Gerador de Anamnese
 
-# Run and deploy your AI Studio app
+Aplicação estática para criar anamneses e evoluções clínicas. Os formulários, modelos, pesquisa de CID, geração de documentos e exportação em PDF funcionam no próprio navegador. Rascunhos ficam no armazenamento local do navegador.
 
-This contains everything you need to run your app locally.
+## Uso offline
 
-View your app in AI Studio: https://ai.studio/apps/0591e56b-c760-484e-bead-8269c52260ac
+Abra a versão publicada pelo menos uma vez com internet e aguarde o carregamento completo. O navegador instala um service worker que guarda todos os arquivos da aplicação, incluindo os módulos usados para gerar PDF. Depois disso, a página pode ser reaberta sem conexão. Pelo menu do navegador, também é possível instalar o site como aplicativo.
 
-## Run Locally
+O cache e os rascunhos pertencem ao navegador e ao dispositivo usados. Limpar os dados do site, usar navegação privada ou remover o aplicativo pode apagá-los. Exporte um JSON para fazer uma cópia dos dados clínicos que queira preservar.
 
-**Prerequisites:**  Node.js
+## Desenvolvimento e publicação
 
+```sh
+npm ci
+npm run dev
+npm run lint
+npm run build
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+O build produz `dist/` com o manifesto, os ícones e o service worker. O workflow em `.github/workflows/deploy.yml` usa `BASE_PATH` para publicar o projeto em um subcaminho do GitHub Pages. Para testar o mesmo caminho localmente, defina `BASE_PATH=/geradorAnamnese/` antes de `npm run build` e execute `npm run preview`.
